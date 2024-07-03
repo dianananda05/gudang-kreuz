@@ -14,7 +14,6 @@ class ModelPengadaan extends Model
     {
         return $this->db->table('pengadaan')
             ->join('permintaan', 'permintaan.kode_permintaan=permintaan.kode_permintaan')
-            // ->join('supplier', 'supplier.kode_supplier=supplier.kode_supplier')
             ->where('permintaan.type_permintaan','PENGADAAN')
             ->orderBy('kode_po', 'DESC')
             ->get()

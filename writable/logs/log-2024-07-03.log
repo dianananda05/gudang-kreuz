@@ -5448,3 +5448,813 @@ WARNING - 2024-07-03 12:33:01 --> [DEPRECATED] Creation of dynamic property App\
  5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 12:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 12:42:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\Permintaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Permintaan.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Permintaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\Permintaan::$ModelDetailPermintaan is deprecated in APPPATH\Controllers\Permintaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Permintaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\Permintaan::$ModelBarang is deprecated in APPPATH\Controllers\Permintaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Permintaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 12:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 12:42:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Permintaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Permintaan.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Permintaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Permintaan::$ModelDetailPermintaan is deprecated in APPPATH\Controllers\Permintaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Permintaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Permintaan::$ModelBarang is deprecated in APPPATH\Controllers\Permintaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Permintaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 12:42:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 12:42:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:42:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 12:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 12:47:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:47:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:47:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:47:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 12:47:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 12:48:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:48:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:48:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 12:48:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 12:48:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:00:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:00:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:00:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:00:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+ERROR - 2024-07-03 13:00:51 --> mysqli_sql_exception: Column 'kode_permintaan' in where clause is ambiguous in C:\xampp\htdocs\ci4-stilsa\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\ci4-stilsa\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ci4-stilsa\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ci4-stilsa\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ci4-stilsa\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ci4-stilsa\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4-stilsa\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ci4-stilsa\app\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ci4-stilsa\system\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+#8 C:\xampp\htdocs\ci4-stilsa\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+#9 C:\xampp\htdocs\ci4-stilsa\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ci4-stilsa\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ci4-stilsa\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ci4-stilsa\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\ci4-stilsa\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-07-03 13:00:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'kode_permintaan' in where clause is ambiguous
+[Method: GET, Route: Pengadaan/tambahdata]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE :kode_permintaan: ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+CRITICAL - 2024-07-03 13:00:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'kode_permintaan' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE :kode_permintaan: ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+CRITICAL - 2024-07-03 13:00:51 --> [Caused by] mysqli_sql_exception: Column 'kode_permintaan' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `permintaan`
+JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `kode_permintaan` LIKE :kode_permintaan: ESCAPE \'!\'
+AND `permintaan`.`kode_permintaan` IS NULL', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:01:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:01:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:01:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:01:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:02:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:02:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:02:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:02:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:02:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:03:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:03:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:03:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:03:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:03:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:04:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:04:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:04:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:04:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:04:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:04:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:04:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:04:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:04:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:05:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:05:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:05:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:05:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:05:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:07:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:07:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:07:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:07:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+CRITICAL - 2024-07-03 13:07:02 --> ErrorException: Undefined array key "permintaan.kode_permintaan"
+[Method: GET, Route: Pengadaan/tambahdata]
+in APPPATH\Views\pengadaan\tambah.php on line 28.
+ 1 APPPATH\Views\pengadaan\tambah.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "permintaan.kode_permintaan"', 'C:\\xampp\\htdocs\\ci4-stilsa\\app\\Views\\pengadaan\\tambah.php', 28)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\ci4-stilsa\\app\\Views\\pengadaan\\tambah.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('pengadaan/tambah', [], true)
+ 5 APPPATH\Controllers\Pengadaan.php(96): view('pengadaan/tambah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:07:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:07:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:07:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:07:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:07:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:12:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:12:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:12:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:12:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:12:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-03 13:14:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:14:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:14:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:14:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+ERROR - 2024-07-03 13:14:20 --> mysqli_sql_exception: Column 'kode_permintaan' in where clause is ambiguous in C:\xampp\htdocs\ci4-stilsa\system\Database\MySQLi\Connection.php:310
+Stack trace:
+#0 C:\xampp\htdocs\ci4-stilsa\system\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `permint...', 0)
+#1 C:\xampp\htdocs\ci4-stilsa\system\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `permint...')
+#2 C:\xampp\htdocs\ci4-stilsa\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `permint...')
+#3 C:\xampp\htdocs\ci4-stilsa\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `permint...', Array, false)
+#4 C:\xampp\htdocs\ci4-stilsa\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4-stilsa\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ci4-stilsa\app\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ci4-stilsa\system\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+#8 C:\xampp\htdocs\ci4-stilsa\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+#9 C:\xampp\htdocs\ci4-stilsa\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ci4-stilsa\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ci4-stilsa\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ci4-stilsa\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\ci4-stilsa\system\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-07-03 13:14:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'kode_permintaan' in where clause is ambiguous
+[Method: GET, Route: Pengadaan/tambahdata]
+in SYSTEMPATH\Database\BaseConnection.php on line 686.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE :kode_permintaan: ESCAPE \'!\'', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+CRITICAL - 2024-07-03 13:14:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'kode_permintaan' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 315.
+ 1 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE :kode_permintaan: ESCAPE \'!\'', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+CRITICAL - 2024-07-03 13:14:20 --> [Caused by] mysqli_sql_exception: Column 'kode_permintaan' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 310.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(310): mysqli->query('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(732): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE \'PO%%\' ESCAPE \'!\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query('SELECT `permintaan`.*
+FROM `permintaan`
+LEFT JOIN `pengadaan` ON `pengadaan`.`kode_permintaan` = `permintaan`.`kode_permintaan`
+WHERE `pengadaan`.`kode_permintaan` IS NULL
+AND  `kode_permintaan` LIKE :kode_permintaan: ESCAPE \'!\'', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Pengadaan.php(84): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengadaan->tambahdata()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengadaan))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:15:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:15:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelPermintaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 17.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:15:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelDetailPengadaan is deprecated in APPPATH\Controllers\Pengadaan.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-07-03 13:15:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengadaan::$ModelBarang is deprecated in APPPATH\Controllers\Pengadaan.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengadaan->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xampp\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-07-03 13:15:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

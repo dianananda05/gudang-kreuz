@@ -80,9 +80,8 @@ class Pengadaan extends BaseController
     }
 
     public function tambahdata()
-    {
-        $permintaan = $this->ModelPermintaan->like('kode_permintaan', 'PO%', 'after')->findAll();
-        
+    {   
+        $permintaan = $this->ModelPermintaan->select('permintaan.*')->join('pengadaan', 'pengadaan.kode_permintaan = permintaan.kode_permintaan', 'left')->where('pengadaan.kode_permintaan IS NULL')->like('permintaan.kode_permintaan', 'PO%', 'after')->findAll();
         $data = [
             'judul' => 'Pengadaan Barang',
             'subjudul' => 'Pengadaan',
