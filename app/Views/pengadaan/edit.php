@@ -19,7 +19,7 @@
                 <h4>Edit Pengadaan Barang</h4>
             </div>
             <div class="card-body col-md-12">
-                <?php echo form_open('Pengadaan/ubahdata') ?>
+                <?php echo form_open('Pengadaan/ubahdata/' . $pengadaan['kode_po']) ?>
                 <div class="form-group">
                     <label for="Kode Permintaan">Kode Permintaan *</label>
                     <input name="kode_permintaan" class="form-control" placeholder="Kode Permintaan" value="<?= $pengadaan['kode_permintaan'] ?>" required readonly>
@@ -68,11 +68,10 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-primary" id="addRowBtn">Tambah Barang</button>
                 </div>
 
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default">Close</button>
+                    <button type="button" class="btn btn-default" onclick="window.history.back()">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 <?php echo form_close() ?>
@@ -87,7 +86,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const barangTable = document.getElementById('barangTable');
-        const addRowBtn = document.getElementById('addRowBtn');
         const searchInput = document.getElementById('searchInput');
 
         const addRow = () => {

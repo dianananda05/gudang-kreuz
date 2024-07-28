@@ -30,13 +30,42 @@ class ModelDetailPengadaan extends Model
         $this->db->table('detail_pengadaan')->insert($dataDetail);
     }
 
+    public function updateDetail($kode_po, $kode_barang, $dataDetail)
+    {
+        $this->db->table($this->table)
+                 ->where('kode_po', $kode_po)
+                 ->where('kode_barang', $kode_barang)
+                 ->update($dataDetail);
+    }
+
     public function ubahdata($dataDetail)
     {
-        $this->db->table('detail_pengadaan')->where('kode_po', $dataDetail['kode_po'])->update($dataDetail);
+        $this->db->table('detail_pengadaan')->where('id_pengadaan', $dataDetail['id_pengadaan'])->update($dataDetail);
     }
 
     public function hapusdata($dataDetail)
     {
         $this->db->table('detail_pengadaan')->where('id_pengadaan', $dataDetail['id_pengadaan'])->delete($dataDetail);
     }
+
+    public function getByKodePO($kode_po)
+    {
+        return $this->db->table($this->table)
+                        ->join('barang', 'barang.kode_barang=detail_pengadaan.kode_barang')
+                        ->where('detail_pengadaan.kode_po', $kode_po)
+                        ->get()
+                        ->getResultArray();
+    }
+    
+    public function getJumlahBarangDipesanByKodePO($kode_po)
+    {
+        $query = $this->db->table('detail_pengadaan')
+                          ->select('jumlah_barang')
+                          ->where('kode_po', $kode_po)
+                          ->get();
+
+        $result = $query->getRow();
+        return $result ? $result->jumlah_barang : 0;
+    }
+
 }

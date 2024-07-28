@@ -19,19 +19,23 @@
     <div class="section-body">
         <div class="card">
             <div class="card-body">
-                <?php if (session()->getFlashdata('pesan')) : ?>
-                    <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fas fa-check"></i> <?= session()->getFlashdata('pesan') ?></h5>
-                    </div>
-                <?php endif; ?>
+                    <?php if (session()->getFlashdata('pesan')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong><i class="fas fa-check-circle"></i> Sukses!</strong> <?= session()->getFlashdata('pesan') ?>
+                        </div>
+                    <?php endif; ?>
 
-                <?php if (session()->getFlashdata('error')) : ?>
-                    <div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fas fa-times"></i> <?= session()->getFlashdata('error') ?></h5>
-                    </div>
-                <?php endif; ?>
+                    <?php if (session()->getFlashdata('error')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong><i class="fas fa-exclamation-circle"></i> Error!</strong> <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
 
                 <!-- Input pencarian -->
                 <div class="form-group">
@@ -49,11 +53,14 @@
                                 <th scope="col">Stok</th>
                                 <th scope="col">Stok In</th>
                                 <th scope="col">Stok Out</th>
-                                <th scope="col">Kategori Barang</th>
+                                <th scope="col">Repair</th>
+                                <th scope="col">Reject</th>
+                                <?php if ($isKepalaPembelian) : ?>
                                 <th scope="col">Harga Satuan</th>
+                                <?php endif; ?>
                                 <th scope="col">QR Code</th>
                                 <th scope="col">Status</th>
-                                <?php if ($isAdmin) : ?>
+                                <?php if ($isAdmin || $isKepalaPembelian) : ?>
                                     <th scope="col">Aksi</th>
                                 <?php endif; ?>
                             </tr>
@@ -68,10 +75,13 @@
                                 <td><?= $value['stok_tersisa'] ?></td>
                                 <td><?= $value['total_masuk'] ?></td>
                                 <td><?= $value['total_keluar'] ?></td>
-                                <td><?= $value['kategori_barang'] ?></td>
+                                <td><?= $value['repair'] ?></td>
+                                <td><?= $value['reject'] ?></td>
+                                <?php if ($isKepalaPembelian) : ?>
                                 <td><?= number_format($value['harga_satuan'], 0, ',', '.') ?></td>
+                                <?php endif; ?>
                                 <td>
-                                    <a href="#" onclick="openModal('<?= $value['kode_barang']; ?>');">
+                                    <a href="#" onclick="openModal('<?= $value['kode_barang']; ?>', '<?= $value['nama_barang']; ?>');">
                                         <i class="fas fa-qrcode" style="font-size: 24px;"></i>
                                     </a>
                                 </td>
@@ -84,18 +94,20 @@
                                         <i class="fas fa-check-circle text-success" title="Stok aman"></i>
                                     <?php endif; ?>
                                 </td>
-                                <?php if ($isAdmin) : ?>
                                 <td>
                                     <div class="d-inline-flex align-items-center">
+                                        <?php if ($isKepalaPembelian || $isAdmin) : ?>
                                         <a href="<?= site_url('barang/edit/' . $value['kode_barang']) ?>" class="btn btn-warning btn-sm mr-1">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
+                                        <?php endif; ?>
+                                        <?php if ($isAdmin) : ?>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal-<?= $value['kode_barang'] ?>">
                                             <i class="fas fa-trash"></i>
                                         </button>
+                                        <?php endif; ?>
                                     </div>
                                 </td>
-                                <?php endif; ?>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -161,7 +173,7 @@
         });
     });
 
-    function openModal(kode_barang) {
+    function openModal(kode_barang, nama_barang) {
         var qrCodeImg = document.getElementById('qrCodeImg');
         var qrCodeText = document.getElementById('qrCodeText');
 
@@ -172,7 +184,7 @@
             success: function(response) {
                 // Mengatur sumber gambar QR Code dan teks
                 qrCodeImg.src = response.publicQrCodePath;
-                qrCodeText.innerHTML = kode_barang;
+                qrCodeText.innerHTML = kode_barang + ' - ' + nama_barang;
 
                 $('#qrCodeModal').modal('show'); // Tampilkan modal
             },

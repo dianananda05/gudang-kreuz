@@ -39,16 +39,14 @@
                             <label for="stok">Stok *</label>
                             <input id="stok" type="number" value="<?= $barang['stok']; ?>" name="stok" class="form-control" placeholder="Stok" required>
                         </div>
-                        <div class="form-group">
-                            <label for="kategori_barang">Kategori Barang *</label>
-                            <input id="kategori_barang" name="kategori_barang" value="<?= $barang['kategori_barang']; ?>" class="form-control" placeholder="Kategori Barang" required>
-                        </div>
+                        <?php if ($isKepalaPembelian) : ?>
                         <div class="form-group">
                             <label for="harga_satuan">Harga Satuan *</label>
                             <input id="harga_satuan" name="harga_satuan" value="<?= $barang['harga_satuan']; ?>" class="form-control" placeholder="Harga Satuan" required>
                         </div>
+                        <?php endif; ?>
                         <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default">Close</button>
+                            <button type="button" class="btn btn-default" onclick="window.history.back()">Close</button>
                             <button type="submit" class="btn btn-primary">Save</button>
                         </div>
                     </form>

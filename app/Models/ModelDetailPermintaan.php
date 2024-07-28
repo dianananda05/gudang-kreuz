@@ -40,5 +40,23 @@ class ModelDetailPermintaan extends Model
         return $this->where('kode_permintaan', $kode_permintaan)->delete();
     }
     
+    public function getByKodePRM($kode_permintaan)
+    {
+        return $this->db->table($this->table)
+                        ->join('barang', 'barang.kode_barang=detail_permintaan.kode_barang')
+                        ->where('detail_permintaan.kode_permintaan', $kode_permintaan)
+                        ->get()
+                        ->getResultArray();
+    }
 
+    public function getJumlahBarangDimintaByKodePRM($kode_permintaan)
+    {
+        $query = $this->db->table('detail_permintaan')
+                          ->select('jumlah_yang_diminta')
+                          ->where('kode_permintaan', $kode_permintaan)
+                          ->get();
+
+        $result = $query->getRow();
+        return $result ? $result->jumlah_yang_diminta : 0;
+    }
 }

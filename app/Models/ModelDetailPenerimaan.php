@@ -8,7 +8,7 @@ class ModelDetailPenerimaan extends Model
 {
     protected $table = 'detail_penerimaan';
     protected $primarykey = 'id_penerimaan';
-    protected $allowedfields = ['kode_penerimaan', 'kode_barang', 'jumlah_yang_diterima', 'kondisi_barang'];
+    protected $allowedfields = ['kode_penerimaan', 'kode_barang', 'jumlah_yang_diterima', 'kondisi_barang', 'status'];
     
     public function AllData($kode_penerimaan = null)
     {
@@ -28,21 +28,19 @@ class ModelDetailPenerimaan extends Model
     public function Tambah($dataDetail)
     {
         $this->db->table('detail_penerimaan')->insert($dataDetail);
-        $this->updateStokBarang($dataDetail['kode_barang'], $dataDetail['jumlah_yang_diterima']);
     }
 
-    private function updateStokBarang($kode_barang, $jumlah_yang_diterima)
+    public function updateDetail($kode_penerimaan, $kode_barang, $dataDetail)
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('barang');
-        $builder->set('stok', 'stok + ' . $jumlah_yang_diterima, false);
-        $builder->where('kode_barang', $kode_barang);
-        $builder->update();
+        $this->db->table($this->table)
+                 ->where('kode_penerimaan', $kode_penerimaan)
+                 ->where('kode_barang', $kode_barang)
+                 ->update($dataDetail);
     }
 
     public function ubahdata($dataDetail)
     {
-        $this->db->table('detail_penerimaan')->where('kode_penerimaan', $dataDetail['kode_penerimaan'])->update($dataDetail);
+        $this->db->table('detail_penerimaan')->where('id_penerimaan', $dataDetail['id_penerimaan'])->update($dataDetail);
     }
 
     public function hapusdata($dataDetail)

@@ -32,26 +32,23 @@
                                 </div>
                         <?php endif; ?>
                 <div class="card-body">
-                    <?php
-                    if (session()->getFlashdata('pesan')) {
-                        echo '<div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fas fa-check"></i>';
-                        echo session()->getFlashdata('pesan');
-                        echo '</h5>
-                        </div>';
-                    }
-                    ?>
-                    <?php
-                    if (session()->getFlashdata('error')) {
-                        echo '<div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fas fa-check"></i>';
-                        echo session()->getFlashdata('error');
-                        echo '</h5>
-                        </div>';
-                    }
-                    ?>
+                    <?php if (session()->getFlashdata('pesan')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong><i class="fas fa-check-circle"></i> Sukses!</strong> <?= session()->getFlashdata('pesan') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('error')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong><i class="fas fa-exclamation-circle"></i> Error!</strong> <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- Input pencarian -->
                     <div class="form-group">
@@ -84,7 +81,7 @@
                                         <td><?= $value['kode_penukaran'] ?></td>
                                         <td><?= date('d/m/Y', strtotime($value['tanggal_penukaran'])) ?></td>
                                         <td><?= $value['timestamp'] ?></td>
-                                        <td><button class="btn btn-info btn-sm btn-flat" data-toggle="modal" data-target="#detailModal" data-kode="<?= $value['kode_penukaran']; ?>"><i class="fas fa-info-circle"></i> Detail</button></td>
+                                        <td><button class="btn btn-info btn-sm btn-flat" data-toggle="modal" data-target="#detailModal<?= $value['kode_penukaran']; ?>"><i class="fas fa-info-circle"></i> Detail</button></td>
                                         <?php if ($isAdmin) : ?>
                                         <td class="text-center" style="width:15%">
                                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal-<?= $value['kode_penukaran'] ?>"><i class="fas fa-trash"></i></button>
@@ -105,7 +102,7 @@
 
     <?php foreach ($penukaran as $value) : ?>
     <!-- Modal -->
-    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal fade" id="detailModal<?= $value['kode_penukaran']; ?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -176,45 +173,6 @@
             </div>
         </div>
     <?php endforeach; ?>
-
-    <script>
-        $('#detailModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var kodePenukaran = button.data('kode');
-
-            $.ajax({
-                url: '<?= site_url("Penukaran/getDetail") ?>/' + kodePenukaran,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    $('#detailKodePengeluaran').text(data.kode_pengeluaran);
-                    $('#detailKodePenukaran').text(data.kode_penukaran);
-                    $('#detailTanggalPenukaran').text(data.tanggal_penukaran);
-                    $('#detailTimestamp').text(data.timestamp);
-
-                    var barangList = '';
-                    if (data.barang.length > 0) {
-                        data.barang.forEach(function (barang) {
-                            barangList += '<tr>' +
-                                '<td>' + barang.kode_barang + '</td>' +
-                                '<td>' + barang.nama_barang + '</td>' +
-                                '<td>' + barang.satuan + '</td>' +
-                                '<td>' + barang.jumlah_yang_diminta + '</td>' +
-                                '<td>' + barang.keterangan + '</td>' +
-                                '</tr>';
-                        });
-                    } else {
-                        barangList += '<tr><td colspan="5">Tidak ada data detail barang.</td></tr>';
-                    }
-
-                    $('#detailBarangList-' + kodePenukaran).html(barangList);
-                },
-                error: function () {
-                    alert('Gagal mengambil data detail.');
-                }
-            });
-        });
-    </script>
 
     <!-- Script untuk pencarian -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -26,7 +26,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 
-$routes->addRedirect('/', 'home');
+$routes->addRedirect('/', 'auth');
 $routes->get('barang/barangMasuk', 'Barang::barangMasuk');
 $routes->get('barang/barangKeluar', 'Barang::barangKeluar');
 
@@ -47,6 +47,8 @@ $routes->get('permintaan', 'Permintaan::index');
 $routes->get('permintaan/tambah', 'Permintaan::tambahdata');
 $routes->POST('permintaan/get', 'Permintaan::insertdata');
 $routes->get('permintaan/hapus', 'Permintaan::hapusdata');
+$routes->get('permintaan/edit/(:any)', 'Permintaan::edit/$1');
+$routes->get('permintaan/get/(:any)', 'Permintaan::ubahdata/$1');
 $routes->get('Permintaan/laporan', 'Permintaan::laporan');
 $routes->get('Permintaan/cetakLaporan', 'Permintaan::cetakLaporan');
 
@@ -61,6 +63,8 @@ $routes->get('Pengadaan/cetakLaporan/(:segment)', 'Pengadaan::cetakLaporan/$1');
 $routes->get('penerimaan', 'Penerimaan::index');
 $routes->get('penerimaan/tambah', 'Penerimaan::tambahdata');
 $routes->POST('penerimaan/get', 'Penerimaan::insertdata');
+$routes->get('penerimaan/edit/(:any)', 'Penerimaan::edit/$1');
+$routes->get('penerimaan/get/(:any)', 'Penerimaan::ubahdata/$1');
 $routes->get('Penerimaan/cetakLaporan/(:segment)', 'Penerimaan::cetakLaporan/$1');
 
 $routes->get('pengeluaran', 'Pengeluaran::index');

@@ -22,20 +22,23 @@
                 <?php echo form_open('Penukaran/insertdata') ?>
                 <div class="form-group">
                     <label for="Kode Pengeluaran">Kode Pengeluaran *</label>
-                    <select name="kode_pengeluaran" class="form-control">
-                                <option value="">Kode Pengeluaran</option>
-                                <?php foreach ($pengeluaran as $key => $d) { ?>
-                                    <option value="<?= $d['kode_pengeluaran'] ?>"><?= $d['kode_pengeluaran'] ?></option>
-                                <?php    } ?>
-                            </select>
+                    <select name="kode_pengeluaran" id="kode_pengeluaran" class="form-control" required>
+                        <option value="">Pilih Kode Pengeluaran</option>
+                        <?php
+                        $uniqueKodePeng = array_unique(array_column($pengeluaran, 'kode_pengeluaran'));
+                        foreach ($uniqueKodePeng as $kodePeng) :
+                        ?>
+                            <option value="<?= $kodePeng ?>"><?= $kodePeng ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="Kode Penukaran">Kode Penukaran *</label>
-                    <input name="kode_penukaran" class="form-control" placeholder="Kode Penukaran" required>
+                    <input type="text" name="kode_penukaran" class="form-control" value="<?= isset($kode_penukaran) ? $kode_penukaran : '' ?>" readonly required style="pointer-events: none;">
                 </div>
                 <div class="form-group">
                     <label for="Tanggal Pengeluaran">Tanggal Penukaran *</label>
-                    <input type="date" name="tanggal_penukaran" class="form-control" placeholder="Tanggal Penukaran" required>
+                    <input type="date" name="tanggal_penukaran" class="form-control" placeholder="Tanggal Penukaran" required value="<?= date('Y-m-d') ?>">
                 </div>
 
                 <!-- Tabel untuk memasukkan data barang -->
@@ -86,7 +89,7 @@
                 </div>
 
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default">Close</button>
+                    <button type="button" class="btn btn-default" onclick="window.history.back()">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 <?php echo form_close() ?>
@@ -143,8 +146,34 @@
         const attachEventListeners = (row) => {
             row.querySelector('.kode_barang').addEventListener('change', function () {
                 const selectedOption = this.options[this.selectedIndex];
-                row.querySelector('.nama_barang').value = selectedOption.getAttribute('data-nama');
-                row.querySelector('.satuan').value = selectedOption.getAttribute('data-satuan');
+                const selectedKode = selectedOption.value;
+                const selectedNama = selectedOption.getAttribute('data-nama');
+                const selectedSatuan = selectedOption.getAttribute('data-satuan');
+                // Check if the selected code is already in the table
+                const existingRows = barangTable.querySelectorAll('tbody tr');
+                let isDuplicate = false;
+                existingRows.forEach(existingRow => {
+                    if (existingRow !== row) { // Exclude current row from comparison
+                        const existingKode = existingRow.querySelector('.kode_barang').value;
+                        if (existingKode === selectedKode) {
+                            isDuplicate = true;
+                            return;
+                        }
+                    }
+                });
+
+                if (isDuplicate) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Duplikat Barang',
+                        text: 'Barang ini sudah ditambahkan sebelumnya.'
+                    });
+                    this.selectedIndex = 0; // Reset dropdown selection
+                } else {
+                    // Populate nama_barang and satuan fields
+                    row.querySelector('.nama_barang').value = selectedNama;
+                    row.querySelector('.satuan').value = selectedSatuan;
+                }
             });
 
             row.querySelector('.btn-remove-row').addEventListener('click', function () {
@@ -177,6 +206,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         const tanggalPenukaranInput = document.querySelector('input[name="tanggal_penukaran"]');
+        tanggalPenukaranInput.valueAsDate = new Date();
 
         function validateTanggalPenukaran(input) {
             const selectedDate = new Date(input.value);

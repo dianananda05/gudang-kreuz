@@ -56,7 +56,7 @@
         <a href="#" id="qrCodeLink">
             <img src="<?= $publicQrCodePath; ?>" alt="QR Code">
         </a>
-        <p><?= $barang['kode_barang']; ?></p>
+        <p><?= $kode_barang ?> - <?= $nama_barang ?></p>
         <!-- Tambahkan tombol untuk membuka modal -->
         <button onclick="openModal();">Preview QR Code</button>
         <!-- Modal -->
@@ -65,7 +65,7 @@
                 <span class="close" onclick="closeModal();">&times;</span>
                 <h2>Preview QR Code</h2>
                 <img src="<?= $publicQrCodePath; ?>" alt="QR Code">
-                <p><?= $barang['kode_barang']; ?></p>
+                <p><?= $kode_barang ?> - <?= $nama_barang ?></p>
                 <button onclick="printQRCode();">Print</button>
             </div>
         </div>

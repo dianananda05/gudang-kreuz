@@ -52,6 +52,8 @@ class Penukaran extends BaseController
 
     public function tambahdata()
     {
+        $pengeluaran = $this->ModelPengeluaran->findAll();
+        $kodeTKR = $this->ModelPenukaran->generateKodeTKR();
         $data = [
             'judul' => 'Penukaran Barang',
             'subjudul' => 'Penukaran',
@@ -62,6 +64,7 @@ class Penukaran extends BaseController
             'detail_penukaran' => $this->ModelDetailPenukaran->AllData(),
             'penukaran' => $this->ModelPenukaran->AllData(),
             'barang' => $this->ModelBarang->AllData(),
+            'kode_penukaran' => $kodeTKR,
         ];
         return view('penukaran/tambah', $data);
     }
@@ -106,11 +109,12 @@ class Penukaran extends BaseController
 
     public function filter()
     {
+        $isAdmin = $this->isAdmin();
         $start_date = $this->request->getGet('start_date');
         $end_date = $this->request->getGet('end_date');
 
         $data['penukaran'] = $this->ModelPenukaran->filterByDate($start_date, $end_date);
-
+        $data['isAdmin'] = $isAdmin;
         foreach ($data['penukaran'] as $penukaran) {
             $kode_penukaran = $penukaran['kode_penukaran'];
             $data['detail_penukaran'][$kode_penukaran] = $this->ModelPenukaran->getDetailPenukaran($kode_penukaran);
@@ -121,6 +125,8 @@ class Penukaran extends BaseController
 
     public function cetakLaporan()
     {
+        date_default_timezone_set('Asia/Jakarta');
+
         $start_date = $this->request->getGet('start_date');
         $end_date = $this->request->getGet('end_date');
 
@@ -134,11 +140,47 @@ class Penukaran extends BaseController
         // Membuat objek TCPDF
         $pdf = new TCPDF();
         $pdf->AddPage();
-        $pdf->SetFont('helvetica', '', 12);
+        $pdf->SetFont('helvetica', '', 7);
+        $pdf->setPrintHeader(false); // Jangan tampilkan header
+        $pdf->setPrintFooter(false); // Jangan tampilkan footer
+
+        $logoPath = FCPATH . 'template/assets/img/kreuz.png';
+    
+        $namaPerusahaan = 'PT. Kreuz Bike Indonesia';
+        $alamatPerusahaan = 'Jl. Rereng Adumanis No.47, Sukaluyu, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40123';
+        $teleponPerusahaan = '+62 819-1500-2786';
+        $emailPerusahaan = 'Kreuzbikeindonesia@gmail.com';
+        $igPerusahaan = 'kreuzbikeid';
+
+        $kopSurat = '
+            <div style="margin-bottom: 20px;">
+                <table width="100%" style="border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 20%; text-align: left; vertical-align: top; border-bottom: 1px solid #000;">
+                            <img src="' . $logoPath . '" style="width: 100px; height: auto; vertical-align: middle;"/>
+                        </td>
+                        <td style="width: 80%; text-align: center; vertical-align: top; border-bottom: 1px solid #000; padding-left: 10px;">
+                            <h2 style="margin: 0; font-size: 18px; font-weight: bold; line-height: 1;">' . $namaPerusahaan . '</h2>
+                            <p style="font-size: 12px; margin-top: 5px; line-height: 1.4;">' . $alamatPerusahaan . '<br>
+                                Telp: ' . $teleponPerusahaan . '<br>
+                                Email: ' . $emailPerusahaan . '<br>
+                                Instagram: ' . $igPerusahaan . '
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center; font-size: 14px; font-weight: bold;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center; font-size: 14px; font-weight: bold;">
+                            Laporan Penukaran Barang - ' . date('d F Y H:i') . ' WIB
+                        </td>
+                    </tr>
+                </table>
+            </div>';
 
         // Konten laporan
-        $html = '<h1>Laporan Penukaran Barang</h1>';
-        $html .= '<p>Periode: ' . date('d-m-Y', strtotime($start_date)) . ' s/d ' . date('d-m-Y', strtotime($end_date)) . '</p>';
+        $html = '<strong><p>Periode: ' . date('d-m-Y', strtotime($start_date)) . ' s/d ' . date('d-m-Y', strtotime($end_date)) . '</p></strong>';
 
         foreach ($penukaran as $tkr) {
             $html .= '<table border="1" cellspacing="0" cellpadding="8">';
@@ -182,9 +224,31 @@ class Penukaran extends BaseController
             $html .= '</tr>';
 
             $html .= '</table>';
+
         }
 
-        $pdf->writeHTML($html, true, false, true, false, '');
+        $html .= '<div style="margin-top: 20px;">
+                    <table width="100%">
+                        <tr>
+                            <td style="width: 50%;"></td>
+                            <td style="text-align: center;">
+                                <p style="margin-bottom: 5px;">Kepala Gudang</p>
+                                <p style="font-weight: bold; margin-bottom: 10px;"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%;"></td>
+                            <td style="text-align: center;">
+                                <p style="margin-bottom: 5px;"></p>
+                                <p style="font-weight: bold; margin-bottom: 10px;">Budi Setiawan</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>';
+
+        $content = $kopSurat . $html;
+
+        $pdf->writeHTML($content, true, false, true, false, '');
 
         // Output PDF
         $pdf->Output('Laporan_Penukaran_Barang.pdf', 'D');

@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\ModelPengadaan;
 use App\Models\ModelPermintaan;
 use App\Models\ModelDetailPengadaan;
+use App\Models\ModelDetailPermintaan;
 use App\Models\ModelBarang;
 use TCPDF;
 
@@ -16,6 +17,7 @@ class Pengadaan extends BaseController
         $this->ModelPengadaan = new ModelPengadaan();
         $this->ModelPermintaan = new ModelPermintaan();
         $this->ModelDetailPengadaan = new ModelDetailPengadaan();
+        $this->ModelDetailPermintaan = new ModelDetailPermintaan();
         $this->ModelBarang = new ModelBarang();
     }
 
@@ -28,11 +30,16 @@ class Pengadaan extends BaseController
     {
         return session()->get('level') === 'kepalapembelian';
     }
+    protected function isKepalaGudang()
+    {
+        return session()->get('level') === 'kepalagudang';
+    }
     
     public function index()
     {
         $isAdmin = $this->isAdmin();
         $isKepalaPembelian = $this->isKepalaPembelian();
+        $isKepalaGudang = $this->isKepalaGudang();
 
         $pengadaan = $this->ModelPengadaan->findAll();
         $detail_pengadaan = [];
@@ -53,6 +60,7 @@ class Pengadaan extends BaseController
             'barang' => $this->ModelBarang->AllData(),
             'isAdmin' => $isAdmin,
             'isKepalaPembelian' => $isKepalaPembelian,
+            'isKepalaGudang' => $isKepalaGudang,
         ];
         return view('pengadaan/get', $data);
     }
@@ -81,7 +89,26 @@ class Pengadaan extends BaseController
 
     public function tambahdata()
     {   
+        $isKepalaPembelian = $this->isKepalaPembelian();
         $permintaan = $this->ModelPermintaan->select('permintaan.*')->join('pengadaan', 'pengadaan.kode_permintaan = permintaan.kode_permintaan', 'left')->where('pengadaan.kode_permintaan IS NULL')->like('permintaan.kode_permintaan', 'PO%', 'after')->findAll();
+        
+        $kode_perm_available = [];
+
+        foreach ($permintaan as $row) {
+            $kode_perm_available[] = $row['kode_permintaan'];
+        }
+
+        $kodePO = $this->ModelPengadaan->generateKodePO();
+        $kode_permintaan = $this->request->getPost('kode_permintaan');
+        $data_barang = $this->ModelDetailPengadaan->getByKodePO($kode_permintaan);
+
+        $selectedKodePrm = $this->request->getGet('kode_permintaan');
+
+        $list_barang = [];
+        if ($selectedKodePrm) {
+            $list_barang = $this->ModelDetailPermintaan->getByKodePRM($selectedKodePrm);
+        }
+
         $data = [
             'judul' => 'Pengadaan Barang',
             'subjudul' => 'Pengadaan',
@@ -92,6 +119,11 @@ class Pengadaan extends BaseController
             'detail_pengadaan' => $this->ModelDetailPengadaan->AllData(),
             'permintaan' => $permintaan,
             'barang' => $this->ModelBarang->AllData(),
+            'kode_po' => $kodePO,
+            'data_barang' => $data_barang,
+            'kode_perm_available' => $kode_perm_available,
+            'list_barang' => $list_barang,
+            'isKepalaPembelian' => $isKepalaPembelian,
         ];
         return view('pengadaan/tambah', $data);
     }
@@ -144,23 +176,31 @@ class Pengadaan extends BaseController
 
     public function ubahdata($kode_po)
     {
+        $pengadaan = $this->ModelPengadaan->findByKodePO($kode_po);
+        if (!$pengadaan) {
+            return redirect()->to('Pengadaan')->with('error', 'Pengadaan tidak ditemukan');
+        }
+
+        $nama_supplier = $this->request->getPost('nama_supplier');
+
         $data = [
-            'kode_permintaan' => $this->request->getPost('kode_permintaan'),
-            'tanggal_pengadaan' => $this->request->getPost('tanggal_pengadaan'),
-            'nama_supplier' => $this->request->getPost('nama_supplier'), 
-        ];
+            'nama_supplier' => $nama_supplier,
+        ]; 
         $this->ModelPengadaan->ubahdata($kode_po, $data);
 
         // Update data detail pengadaan
-        $kode_barang = $this->request->getPost('kode_barang');
-        $jumlah_barang = $this->request->getPost('jumlah_barang');
+        $kodeBarang = $this->request->getPost('kode_barang');
+        $jumlahYangDipesan = $this->request->getPost('jumlah_barang');
 
-        for ($i = 0; $i < count($kode_barang); $i++) {
-            $dataDetail = [
-                'kode_barang' => $kode_barang[$i],
-                'jumlah_barang' => $jumlah_barang[$i],
-            ];
-            $this->ModelDetailPengadaan->ubahdata($kode_po, $kode_barang[$i], $dataDetail);
+        if (is_array($jumlahYangDipesan) && is_array($kodeBarang)) {
+            foreach ($kodeBarang as $index => $kode) {
+                $dataDetail = [
+                    'jumlah_barang' => $jumlahYangDipesan[$index]
+                ];
+    
+                // Update data detail_penerimaan berdasarkan kode_penerimaan dan kode_barang
+                $this->ModelDetailPengadaan->updateDetail($kode_po, $kode, $dataDetail);
+            }
         }
 
         session()->setFlashdata('pesan', 'Data Berhasil Diupdate');
@@ -181,43 +221,61 @@ class Pengadaan extends BaseController
     {
         // Ambil data pengadaan berdasarkan kode PO
         $pengadaan = $this->ModelPengadaan->findByKodePO($kode_po);
+        $supplier  = $this->ModelPengadaan->findSupplier($kode_po);
         $detail_pengadaan = $this->ModelDetailPengadaan->AllData($kode_po);
 
         // Membuat objek TCPDF
         $pdf = new TCPDF();
         $pdf->AddPage();
-        $pdf->SetFont('helvetica', '', 9);
+        $pdf->SetFont('helvetica', '', 7);
+
+        $pdf->setPrintHeader(false); // Jangan tampilkan header
+        $pdf->setPrintFooter(false); // Jangan tampilkan footer
+
+        $logoPath = FCPATH . 'template/assets/img/kreuz.png';
+        $namaPerusahaan = 'PT. Kreuz Bike Indonesia';
+        $alamatPerusahaan = 'Jl. Rereng Adumanis No.47, Sukaluyu, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40123';
 
         // Header invoice
         $html = '<table width="100%" style="border-collapse: collapse;">';
         $html .= '<tr>';
-        $html .= '<h1>Invoice</h1>';
-        $html .= '<td width="50%">';
-        $html .= '<h3>Pembeli</h3>';
-        $html .= '<p>Nama: ' . 'PT. Kreuz Bike Indonesia' . '</p>';
-        $html .= '<p>Alamat: ' . 'Jl. Rereng Adumanis No.47, Sukaluyu, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40123' . '</p>';
-        $html .= '<p>Telepon: ' . '+62 819-1500-2786' . '</p>';
-        $html .= '<p>Email: ' . 'Kreuzbikeindonesia@gmail.com' . '</p>';
-        $html .= '</td>';
-        $html .= '<td width="50%">';
-        $html .= '<h3>Supplier</h3>';
-        $html .= '<p>Nama: ' . 'RodaLink' . '</p>';
-        $html .= '<p>Alamat: ' . 'Jl. Ligar Resik No. 26' . '</p>';
-        $html .= '<p>Telepon: ' . '022 2514238' . '</p>';
-        $html .= '<p>Email: ' . 'rodalink@gmail.com' . '</p>';
+        $html .= '<td style="width: 20%; text-align: left; vertical-align: top;">
+                    <img src="' . $logoPath . '" style="width: 60px; height: auto; vertical-align: middle;"/>
+                    </td>';
+        $html .= '<td style="width: 80%; text-align: left; vertical-align: top;">';
+        $html .= '<h2 style="margin: 0; font-size: 10px; font-weight: bold; line-height: 1;">' . $namaPerusahaan . '</h2>';
+        $html .= '<p style="font-size: 8px; margin-top: 5px; line-height: 1.2;">' . $alamatPerusahaan . '</p>';
         $html .= '</td>';
         $html .= '</tr>';
+        $html .= '</table>';
+
+        $html .= '<table width="100%">';
         $html .= '<tr>';
-        $html .= '<td colspan="2"><hr style="margin-top: 20px; margin-bottom: 20px;">' . '</td>';
+        $html .= '<td colspan="2"><hr style="margin-top: 20px; margin-bottom: 20px;"></td>';
+        $html .= '</tr>';
+        $html .= '</table>';
+
+        $html .= '<table width="100%" style="text-align: center;">';
+        $html .= '<tr>';
+        $html .= '<td>';
+        $html .= '<h4 style="font-size: 12; font-weight: bold;">PURCHASE ORDER</h4>';
+        $html .= '</td>';
+        $html .= '</tr>';
+        $html .= '</table>';
+
+        $html .= '<table width="100%">';
+        $html .= '<tr>';
+        $html .= '<td colspan="2"></td>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '<td colspan="2">';
         $html .= '<p><strong>Kode PO:</strong> ' . $pengadaan['kode_po'] . '</p>';
         $html .= '<p><strong>Tanggal Pengadaan:</strong> ' . date('d/m/Y', strtotime($pengadaan['tanggal_pengadaan'])) . '</p>';
+        $html .= '<p><strong>Nama Supplier:</strong> ' . $supplier['nama_supplier'] . '</p>';
         $html .= '</td>';
         $html .= '</tr>';
         $html .= '<tr>';
-        $html .= '<td colspan="2" style="padding-top: 20px;">' . '</td>';
+        $html .= '<td colspan="2" style="padding-top: 20px;"></td>';
         $html .= '</tr>';
         $html .= '</table>';
 
@@ -264,13 +322,46 @@ class Pengadaan extends BaseController
         $html .= '<td colspan="5" align="right"><strong>Total Harga :</strong></td>';
         $html .= '<td align="right"><strong>' . 'Rp. ' . number_format($totalHarga, 2, ',', '.') . '</strong></td>';
         $html .= '</tr>';
-
         $html .= '</table>';
+
+        $html .= '<div style="margin-top: 20px;"></div>';
+        $html .= '<div style="margin-top: 20px;">';
+        $html .= '<table width="100%">';
+        $html .= '<tr>';
+        $html .= '<td style="width: 33.33%; text-align: center;">';
+        $html .= '<p style="margin-bottom: 5px;">Kepala Gudang</p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;">Budi Setiawan</p>';
+        $html .= '</td>';
+        $html .= '<td style="width: 33.33%;"></td>'; // Kolom kosong
+        $html .= '<td style="text-align: center; width: 33.33%;">';
+        $html .= '<p style="margin-bottom: 5px;">Kepala Produksi</p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;">Agus Ipan Herdiawan</p>';
+        $html .= '</td>';
+        $html .= '</tr>';
+        $html .= '<tr>';
+        $html .= '<td style="width: 33.33%;"></td>'; // Kolom kosong
+        $html .= '<td style="text-align: center; width: 33.33%;">';
+        $html .= '<p style="margin-bottom: 5px;">Manager Accounting</p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;"></p>';
+        $html .= '<p style="font-weight: bold; margin-bottom: 10px;">M. Nuryansyah</p>';
+        $html .= '</td>';
+        $html .= '<td style="width: 33.33%;"></td>'; // Kolom kosong
+        $html .= '</tr>';
+        $html .= '</table>';
+        $html .= '</div>';
 
         $pdf->writeHTML($html, true, false, true, false, '');
 
         // Output PDF
-        $pdf->Output('Invoice_Pengadaan_' . $pengadaan['kode_po'] . '.pdf', 'D');
+        $pdf->Output('Purchase_Order_' . $pengadaan['kode_po'] . '.pdf', 'D');
     }
 
     public function filter()
@@ -293,6 +384,8 @@ class Pengadaan extends BaseController
 
     public function cetakLaporan()
     {
+        date_default_timezone_set('Asia/Jakarta');
+
         $start_date = $this->request->getGet('start_date');
         $end_date = $this->request->getGet('end_date');
 
@@ -306,11 +399,48 @@ class Pengadaan extends BaseController
         // Membuat objek TCPDF
         $pdf = new TCPDF();
         $pdf->AddPage();
-        $pdf->SetFont('helvetica', '', 8);
+        $pdf->SetFont('helvetica', '', 7);
 
-        // Konten laporan
-        $html = '<h1>Laporan Pengadaan Barang</h1>';
-        $html .= '<p>Periode: ' . date('d-m-Y', strtotime($start_date)) . ' s/d ' . date('d-m-Y', strtotime($end_date)) . '</p>';
+        $pdf->setPrintHeader(false); // Jangan tampilkan header
+        $pdf->setPrintFooter(false); // Jangan tampilkan footer
+
+        $logoPath = FCPATH . 'template/assets/img/kreuz.png';
+    
+        $namaPerusahaan = 'PT. Kreuz Bike Indonesia';
+        $alamatPerusahaan = 'Jl. Rereng Adumanis No.47, Sukaluyu, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40123';
+        $teleponPerusahaan = '+62 819-1500-2786';
+        $emailPerusahaan = 'Kreuzbikeindonesia@gmail.com';
+        $igPerusahaan = 'kreuzbikeid';
+
+        $kopSurat = '
+            <div style="margin-bottom: 20px;">
+                <table width="100%" style="border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 20%; text-align: left; vertical-align: top; border-bottom: 1px solid #000;">
+                            <img src="' . $logoPath . '" style="width: 100px; height: auto; vertical-align: middle;"/>
+                        </td>
+                        <td style="width: 80%; text-align: center; vertical-align: top; border-bottom: 1px solid #000; padding-left: 10px;">
+                            <h2 style="margin: 0; font-size: 18px; font-weight: bold; line-height: 1;">' . $namaPerusahaan . '</h2>
+                            <p style="font-size: 12px; margin-top: 5px; line-height: 1.4;">' . $alamatPerusahaan . '<br>
+                                Telp: ' . $teleponPerusahaan . '<br>
+                                Email: ' . $emailPerusahaan . '<br>
+                                Instagram: ' . $igPerusahaan . '
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center; font-size: 14px; font-weight: bold;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center; font-size: 14px; font-weight: bold;">
+                            Laporan Pengadaan Barang - ' . date('d F Y H:i') . ' WIB
+                        </td>
+                    </tr>
+                </table>
+            </div>';
+
+        // Konten laporan]
+        $html = '<strong><p>Periode: ' . date('d-m-Y', strtotime($start_date)) . ' s/d ' . date('d-m-Y', strtotime($end_date)) . '</p></strong>';
 
         foreach ($pengadaan as $peng) {
             $html .= '<table border="1" cellspacing="0" cellpadding="8">';
@@ -365,9 +495,31 @@ class Pengadaan extends BaseController
             $html .= '</tr>';
             
             $html .= '</table>';
-        }            
+        }         
+        
+        $html .= '<div style="margin-top: 20px;">
+                    <table width="100%">
+                        <tr>
+                            <td style="width: 50%;"></td>
+                            <td style="text-align: center;">
+                                <p style="margin-bottom: 5px;">Kepala Gudang</p>
+                                <p style="font-weight: bold; margin-bottom: 10px;"></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%;"></td>
+                            <td style="text-align: center;">
+                                <p style="margin-bottom: 5px;"></p>
+                                <p style="font-weight: bold; margin-bottom: 10px;">Budi Setiawan</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>';
 
-        $pdf->writeHTML($html, true, false, true, false, '');
+        $content = $kopSurat . $html;
+
+
+        $pdf->writeHTML($content, true, false, true, false, '');
 
         // Output PDF
         $pdf->Output('Laporan_Pengadaan_Barang.pdf', 'D');

@@ -22,20 +22,21 @@
                 <?php echo form_open('Pengadaan/insertdata') ?>
                 <div class="form-group">
                     <label for="Kode Permintaan">Kode Permintaan *</label>
-                    <select name="kode_permintaan" class="form-control">
-                            <option value="">Kode Permintaan</option>
-                            <?php foreach ($permintaan as $key => $p) { ?>
-                                <option value="<?= $p['kode_permintaan'] ?>"><?= $p['kode_permintaan'] ?></option>
-                            <?php    } ?>
-                        </select>
+                    <select id="kode_permintaan" name="kode_permintaan" class="form-control">
+                        <option value="">Kode Permintaan</option>
+                        <?php foreach ($kode_perm_available as $kodePerm) : ?>
+                            <?php $selected = (isset($_GET['kode_permintaan']) && $_GET['kode_permintaan'] === $kodePerm) ? 'selected' : ''; ?>
+                            <option value="<?= $kodePerm ?>" <?= $selected ?>><?= $kodePerm ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="Kode PO">Kode PO *</label>
-                    <input name="kode_po" class="form-control" placeholder="Kode PO" required>
+                    <input type="text" name="kode_po" class="form-control" value="<?= isset($kode_po) ? $kode_po : '' ?>" readonly required style="pointer-events: none;">
                 </div>
                 <div class="form-group">
                     <label for="Tanggal Pengadaan">Tanggal Pengadaan *</label>
-                    <input type="date" name="tanggal_pengadaan" class="form-control" placeholder="Tanggal Pengadaan" required>
+                    <input type="date" name="tanggal_pengadaan" class="form-control" placeholder="Tanggal Pengadaan" required value="<?= date('Y-m-d') ?>">
                 </div>
 
                 <!-- Tabel untuk memasukkan data barang -->
@@ -47,36 +48,34 @@
                                 <th>Kode Barang</th>
                                 <th>Nama Barang</th>
                                 <th>Satuan</th>
+                                <th>Jumlah Yang Diminta</th>
+                                <?php if ($isKepalaPembelian) : ?>
                                 <th>Harga Satuan</th>
-                                <th>Jumlah Barang</th>
+                                <?php endif; ?>
+                                <th>Jumlah Yang Dipesan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <select name="kode_barang[]" class="form-control kode_barang">
-                                        <option value="">Pilih Barang</option>
-                                        <?php foreach ($barang as $b) { ?>
-                                            <option value="<?= $b['kode_barang'] ?>" data-nama="<?= $b['nama_barang'] ?>" data-satuan="<?= $b['satuan'] ?>" data-harga="<?= $b['harga_satuan'] ?>">
-                                                <?= $b['kode_barang'] ?> - <?= $b['nama_barang'] ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </td>
-                                <td><input type="text" name="nama_barang[]" class="form-control nama_barang" readonly></td>
-                                <td><input type="text" name="satuan[]" class="form-control satuan" readonly></td>
-                                <td><input type="number" name="harga_satuan[]" class="form-control harga_satuan" readonly></td>
-                                <td><input type="number" name="jumlah_barang[]" class="form-control jumlah_barang"></td>
-                                <td><button type="button" class="btn btn-danger btn-remove-row">Hapus</button></td>
-                            </tr>
+                            <?php foreach ($list_barang as $barang) : ?>
+                                    <tr>
+                                        <td><input name="kode_barang[]" class="form-control" value="<?= $barang['kode_barang'] ?>"></td>
+                                        <td><?= $barang['nama_barang'] ?></td>
+                                        <td><?= $barang['satuan'] ?></td>
+                                        <td><?= $barang['jumlah_yang_diminta'] ?></td>
+                                        <?php if ($isKepalaPembelian) : ?>
+                                        <td><input type="number" name="harga_satuan[]" class="form-control harga_satuan" placeholder="Harga Satuan" readonly></td>
+                                        <?php endif; ?>
+                                        <td><input type="number" name="jumlah_barang[]" class="form-control jumlah_barang" placeholder="Jumlah Barang"></td>
+                                        <td><button type="button" class="btn btn-danger btn-remove-row">Hapus</button></td>
+                                    </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-primary" id="addRowBtn">Tambah Barang</button>
                 </div>
 
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default">Close</button>
+                    <button type="button" class="btn btn-default" onclick="window.history.back()">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 <?php echo form_close() ?>
@@ -91,101 +90,105 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const barangTable = document.getElementById('barangTable');
-        const addRowBtn = document.getElementById('addRowBtn');
         const searchInput = document.getElementById('searchInput');
+        const kodePRMSelect = document.getElementById('kode_permintaan');
 
-        const addRow = () => {
-            const newRow = document.createElement('tr');
+        function fetchDetailBarang(selectedKodePRM) {
+            if (selectedKodePRM) {
+                fetch(`<?=base_url('Pengadaan/getBarangByKodePRM/') ?>${selectedKodePRM}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const barangTableBody = document.querySelector('#barangTable tbody');
+                    barangTableBody.innerHTML = '';
 
-            newRow.innerHTML = `
-                <td>
-                    <select name="kode_barang[]" class="form-control kode_barang">
-                        <option value="">Pilih Barang</option>
-                        <?php foreach ($barang as $value) { ?>
-                            <option value="<?= $value['kode_barang'] ?>" data-nama="<?= $value['nama_barang'] ?>" data-satuan="<?= $value['satuan'] ?>" data-harga="<?= $value['harga_satuan'] ?>">
-                                <?= $value['kode_barang'] ?> - <?= $value['nama_barang'] ?> - <?= $value['harga_satuan'] ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
-                <td>
-                    <input name="nama_barang[]" class="form-control nama_barang" placeholder="Nama Barang" required readonly>
-                </td>
-                <td>
-                    <input name="satuan[]" class="form-control satuan" placeholder="Satuan" required readonly>
-                </td>
-                <td>
-                    <input name="harga_satuan[]" type="number" class="form-control harga_satuan" placeholder="Harga Satuan" required readonly>
-                </td>
-                <td>
-                    <input name="jumlah_barang[]" type="number" class="form-control" placeholder="Jumlah Barang" required>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-danger btn-remove-row">Hapus</button>
-                </td>
-            `;
+                    data.forEach(barang => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td><input name="kode_barang[]" class="form-control" value="${barang.kode_barang}" readonly></td>
+                            <td>${barang.nama_barang}</td>
+                            <td>${barang.satuan}</td>
+                            <td>${barang.jumlah_yang_diminta}</td>
+                            <?php if ($isKepalaPembelian) : ?>
+                            <td><input type="number" name="harga_satuan[]" class="form-control harga_satuan" placeholder="Harga Satuan" value="${barang.harga_satuan}" readonly></td>
+                            <?php endif; ?>
+                            <td><input type="number" name="jumlah_barang[]" class="form-control jumlah_barang" placeholder="Jumlah Barang" value="${barang.jumlah_barang}"></td>
+                            <td><button type="button" class="btn btn-danger btn-remove-row">Hapus</button></td>
+                        `;
+                        barangTableBody.appendChild(row);
+                    });
 
-            barangTable.querySelector('tbody').appendChild(newRow);
+                    kodePRMSelect.value = selectedKodePRM;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+            }
+        }
 
-            attachEventListeners(newRow);
-        };
+        kodePRMSelect.addEventListener('change', function (evt) {
+            const selectedKodePRM = evt.target.value;
+            const currentUrl = window.location.href;
+            const url = new URL(currentUrl);
+            const params = new URLSearchParams(url.search);
+            params.set('kode_permintaan', selectedKodePRM);
+            url.search = params.toString();
+            window.location.href = url.toString();
+        });
 
-        const attachEventListeners = (row) => {
-            row.querySelector('.kode_barang').addEventListener('change', function () {
-                const selectedOption = this.options[this.selectedIndex];
-                row.querySelector('.nama_barang').value = selectedOption.getAttribute('data-nama');
-                row.querySelector('.satuan').value = selectedOption.getAttribute('data-satuan');
-                row.querySelector('.harga_satuan').value = selectedOption.getAttribute('data-harga');
-            });
+        const initialSelectedKodePRM = kodePRMSelect.value;
+        if (initialSelectedKodePRM) {
+            fetchDetailBarang(initialSelectedKodePRM);
+        }
 
-            row.querySelector('.btn-remove-row').addEventListener('click', function () {
-                row.remove();
-            });
-        };
-
-        // Attach event listener to the initial row
-        attachEventListeners(barangTable.querySelector('tbody tr'));
-
-        // Event listener for the "Tambah Barang" button
-        addRowBtn.addEventListener('click', addRow);
-
-        // Search functionality
         searchInput.addEventListener('input', function () {
             const filter = searchInput.value.toLowerCase();
             const rows = barangTable.querySelectorAll('tbody tr');
 
             rows.forEach(row => {
-                const kodeBarang = row.querySelector('.kode_barang');
-                const namaBarang = row.querySelector('.nama_barang');
+                const kodeBarang = row.querySelector('input[name="kode_barang[]"]').value.toLowerCase();
+                const namaBarang = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
 
-                if (kodeBarang && namaBarang) {
-                    const textValue = (kodeBarang.value + namaBarang.value).toLowerCase();
-                    row.style.display = textValue.includes(filter) ? '' : 'none';
+                if (kodeBarang.includes(filter) || namaBarang.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
                 }
             });
         });
-    });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const tanggalPengadaanInput = document.querySelector('input[name="tanggal_pengadaan"]');
-
-        function validateTanggalPengadaan(input) {
-            const selectedDate = new Date(input.value);
-            const today = new Date();
-            today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate comparison
-
-            if (selectedDate < today) {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Tanggal tidak valid',
-                    text: 'Harap pilih tanggal setelah hari ini.'
-                });
-                input.value = ''; // Clear the invalid date
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('btn-remove-row')) {
+                event.target.closest('tr').remove();
             }
-        }
+        });
 
-        tanggalPengadaanInput.addEventListener('change', function() {
-            validateTanggalPengadaan(tanggalPengadaanInput);
+        document.addEventListener('DOMContentLoaded', function() {
+            const tanggalPengadaanInput = document.querySelector('input[name="tanggal_pengadaan"]');
+            tanggalPengadaanInput.valueAsDate = new Date();
+
+            function validateTanggalPengadaan(input) {
+                const selectedDate = new Date(input.value);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate comparison
+
+                if (selectedDate < today) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Tanggal tidak valid',
+                        text: 'Harap pilih tanggal setelah hari ini.'
+                    });
+                    input.value = ''; // Clear the invalid date
+                }
+            }
+
+            tanggalPengadaanInput.addEventListener('change', function() {
+                validateTanggalPengadaan(tanggalPengadaanInput);
+            });
         });
     });
 </script>

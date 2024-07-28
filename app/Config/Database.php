@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
+        'hostname'     => '127.0.0.1',
         'username'     => 'root',
         'password'     => '',
         'database'     => 'db_gudangkreuz',
@@ -140,7 +140,7 @@ class Database extends Config
     //    public array $default = [
     //        'DSN'        => 'localhost:1521/XEPDB1',
     //        'username'   => 'root',
-    //        'password'   => 'root',
+    //        'password'   => '',
     //        'DBDriver'   => 'OCI8',
     //        'DBPrefix'   => '',
     //        'pConnect'   => false,

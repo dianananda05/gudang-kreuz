@@ -25,6 +25,26 @@ class ModelDetailPenukaran extends Model
             ->getResultArray();
     }
 
+    public function getRepairCount($kode_barang)
+    {
+        return $this->db->table('detail_penukaran')
+            ->selectSum('jumlah_penukaran', 'total_repair')
+            ->where('kode_barang', $kode_barang)
+            ->like('alasan_penukaran', 'repair', 'both')
+            ->get()
+            ->getRowArray();
+    }
+
+    public function getRejectCount($kode_barang)
+    {
+        return $this->db->table('detail_penukaran')
+            ->selectSum('jumlah_penukaran', 'total_reject')
+            ->where('kode_barang', $kode_barang)
+            ->like('alasan_penukaran', 'reject', 'both')
+            ->get()
+            ->getRowArray();
+    }
+
     public function Tambah($dataDetail)
     {
         $this->db->table('detail_penukaran')->insert($dataDetail);
@@ -39,4 +59,5 @@ class ModelDetailPenukaran extends Model
     {
         $this->db->table('detail_penukaran')->where('id_penukaran', $dataDetail['id_penukaran'])->delete($dataDetail);
     }
+
 }

@@ -57,9 +57,11 @@ class Dashboard extends BaseController
     public function kepalapembelian()
     {
         $modelPengadaan = new ModelPengadaan();
+        $modelPenerimaan = new ModelPenerimaan();
 
         $data = [
             'pengadaanCount' => $modelPengadaan->countAllResults(),
+            'penerimaanCount' => $modelPenerimaan->countAllResults(),
         ];
         // Konten untuk halaman dashboard user
         return view('dashboard/kepalapembelian', $data);

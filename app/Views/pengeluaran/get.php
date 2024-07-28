@@ -33,26 +33,23 @@
                             </div>
                         <?php endif; ?>
                 <div class="card-body">
-                    <?php
-                    if (session()->getFlashdata('pesan')) {
-                        echo '<div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fas fa-check"></i>';
-                        echo session()->getFlashdata('pesan');
-                        echo '</h5>
-                        </div>';
-                    }
-                    ?>
-                    <?php
-                    if (session()->getFlashdata('error')) {
-                        echo '<div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fas fa-check"></i>';
-                        echo session()->getFlashdata('error');
-                        echo '</h5>
-                        </div>';
-                    }
-                    ?>
+                    <?php if (session()->getFlashdata('pesan')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong><i class="fas fa-check-circle"></i> Sukses!</strong> <?= session()->getFlashdata('pesan') ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('error')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong><i class="fas fa-exclamation-circle"></i> Error!</strong> <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- Input pencarian -->
                     <div class="form-group">
@@ -85,7 +82,7 @@
                                         <td><?= $value['kode_pengeluaran'] ?></td>
                                         <td><?= date('d/m/Y', strtotime($value['tanggal_pengeluaran'])) ?></td>
                                         <td><?= $value['timestamp'] ?></td>
-                                        <td><button class="btn btn-info btn-sm btn-flat" data-toggle="modal" data-target="#detailModal" data-kode="<?= $value['kode_pengeluaran']; ?>"><i class="fas fa-info-circle"></i> Detail</button></td>
+                                        <td><button class="btn btn-info btn-sm btn-flat" data-toggle="modal" data-target="#detailModal<?= $value['kode_pengeluaran']; ?>"><i class="fas fa-info-circle"></i> Detail</button></td>
                                         <?php if ($isAdmin) : ?>
                                         <td class="text-center" style="width:15%">
                                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal-<?= $value['kode_pengeluaran'] ?>"><i class="fas fa-trash"></i></button>
@@ -106,7 +103,7 @@
 
     <?php foreach ($pengeluaran as $value) : ?>
     <!-- Modal -->
-    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal fade" id="detailModal<?= $value['kode_pengeluaran']; ?>" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -177,45 +174,6 @@
             </div>
         </div>
     <?php endforeach; ?>
-
-    <script>
-        $('#detailModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            var kodePengeluaran = button.data('kode');
-
-            $.ajax({
-                url: '<?= site_url("Pengeluaran/getDetail") ?>/' + kodePengeluaran,
-                method: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    $('#detailKodePermintaan').text(data.kode_permintaan);
-                    $('#detailKodePengeluaran').text(data.kode_pengeluaran);
-                    $('#detailTanggalPengeluaran').text(data.tanggal_pengeluaran);
-                    $('#detailTimestamp').text(data.timestamp);
-
-                    var barangList = '';
-                    if (data.barang.length > 0) {
-                        data.barang.forEach(function (barang) {
-                            barangList += '<tr>' +
-                                '<td>' + barang.kode_barang + '</td>' +
-                                '<td>' + barang.nama_barang + '</td>' +
-                                '<td>' + barang.satuan + '</td>' +
-                                '<td>' + barang.jumlah_yang_diminta + '</td>' +
-                                '<td>' + barang.keterangan + '</td>' +
-                                '</tr>';
-                        });
-                    } else {
-                        barangList += '<tr><td colspan="5">Tidak ada data detail barang.</td></tr>';
-                    }
-
-                    $('#detailBarangList-' + kodePengeluaran).html(barangList);
-                },
-                error: function () {
-                    alert('Gagal mengambil data detail.');
-                }
-            });
-        });
-    </script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

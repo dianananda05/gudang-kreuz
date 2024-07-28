@@ -18,11 +18,11 @@
             <div class="card-header">
                 <h4>Tambah Permintaan Barang</h4>
             </div>
-            <div class="card-body col-md-12">
+            <div id="canvas" class="card-body col-md-12">
                 <?php echo form_open('Permintaan/insertdata') ?>
                 <div class="form-group">
                     <label for="Kode Permintaan">Kode Permintaan *</label>
-                    <input name="kode_permintaan" class="form-control" placeholder="Kode Permintaan" required>
+                    <input name="kode_permintaan" id="kode_permintaan" class="form-control" placeholder="Kode Permintaan" value="<?= $newKode ?>" required readonly style="pointer-events: none;">
                 </div>
                 <div class="form-group">
                     <label for="Nama Pengaju">Nama Pengaju *</label>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Tanggal Permintaan">Tanggal Permintaan *</label>
-                    <input type="date" name="tanggal_permintaan" class="form-control" placeholder="Tanggal Permintaan" required>
+                    <input type="date" name="tanggal_permintaan" class="form-control" placeholder="Tanggal Permintaan" required value="<?= date('Y-m-d') ?>">
                 </div>
                 <div class="form-group">
                     <label for="Type Permintaan">Type Permintaan *</label>
@@ -71,10 +71,10 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <input name="nama_barang[]" class="form-control nama_barang" placeholder="Nama Barang" required readonly>
+                                    <input name="nama_barang[]" class="form-control nama_barang" placeholder="Nama Barang" required readonly style="pointer-events: none;">
                                 </td>
                                 <td>
-                                    <input name="satuan[]" class="form-control satuan" placeholder="Satuan" required readonly>
+                                    <input name="satuan[]" class="form-control satuan" placeholder="Satuan" required readonly style="pointer-events: none;">
                                 </td>
                                 <td>
                                     <input name="jumlah_yang_diminta[]" type="number" class="form-control" placeholder="Jumlah Yang Diminta" required>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default">Close</button>
+                    <button type="button" class="btn btn-default" onclick="window.history.back()">Close</button>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 <?php echo form_close() ?>
@@ -109,6 +109,32 @@
         const barangTable = document.getElementById('barangTable');
         const addRowBtn = document.getElementById('addRowBtn');
         const searchInput = document.getElementById('searchInput');
+        const kodePermintaanInput = document.getElementById('kode_permintaan');
+        const typePermintaanRadios = document.querySelectorAll('input[name="type_permintaan"]');
+
+        // Fungsi untuk mengubah kode permintaan berdasarkan type permintaan yang dipilih
+        const updateKodePermintaan = () => {
+            const selectedTypePermintaan = document.querySelector('input[name="type_permintaan"]:checked');
+            if (selectedTypePermintaan) {
+                const typePermintaan = selectedTypePermintaan.value;
+                // Kirim request AJAX atau gunakan data langsung dari PHP
+                fetch(`/Permintaan/generateKodePermintaan/${typePermintaan}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        kodePermintaanInput.value = data.newKode;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+        };
+
+        // Event listener untuk perubahan pada radio button type permintaan
+        typePermintaanRadios.forEach(radio => {
+            radio.addEventListener('change', updateKodePermintaan);
+        });
+
+        updateKodePermintaan();
 
         const addRow = () => {
             const newRow = document.createElement('tr');
@@ -125,10 +151,10 @@
                     </select>
                 </td>
                 <td>
-                    <input name="nama_barang[]" class="form-control nama_barang" placeholder="Nama Barang" required readonly>
+                    <input name="nama_barang[]" class="form-control nama_barang" placeholder="Nama Barang" required readonly style="pointer-events: none;">
                 </td>
                 <td>
-                    <input name="satuan[]" class="form-control satuan" placeholder="Satuan" required readonly>
+                    <input name="satuan[]" class="form-control satuan" placeholder="Satuan" required readonly style="pointer-events: none;">
                 </td>
                 <td>
                     <input name="jumlah_yang_diminta[]" type="number" class="form-control" placeholder="Jumlah Yang Diminta" required>
@@ -149,8 +175,34 @@
         const attachEventListeners = (row) => {
             row.querySelector('.kode_barang').addEventListener('change', function () {
                 const selectedOption = this.options[this.selectedIndex];
-                row.querySelector('.nama_barang').value = selectedOption.getAttribute('data-nama');
-                row.querySelector('.satuan').value = selectedOption.getAttribute('data-satuan');
+                const selectedKode = selectedOption.value;
+                const selectedNama = selectedOption.getAttribute('data-nama');
+                const selectedSatuan = selectedOption.getAttribute('data-satuan');
+                // Check if the selected code is already in the table
+                const existingRows = barangTable.querySelectorAll('tbody tr');
+                let isDuplicate = false;
+                existingRows.forEach(existingRow => {
+                    if (existingRow !== row) { // Exclude current row from comparison
+                        const existingKode = existingRow.querySelector('.kode_barang').value;
+                        if (existingKode === selectedKode) {
+                            isDuplicate = true;
+                            return;
+                        }
+                    }
+                });
+
+                if (isDuplicate) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Duplikat Barang',
+                        text: 'Barang ini sudah ditambahkan sebelumnya.'
+                    });
+                    this.selectedIndex = 0; // Reset dropdown selection
+                } else {
+                    // Populate nama_barang and satuan fields
+                    row.querySelector('.nama_barang').value = selectedNama;
+                    row.querySelector('.satuan').value = selectedSatuan;
+                }
             });
 
             row.querySelector('.btn-remove-row').addEventListener('click', function () {
@@ -183,6 +235,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         const tanggalPermintaanInput = document.querySelector('input[name="tanggal_permintaan"]');
+        tanggalPermintaanInput.valueAsDate = new Date();
 
         function validateTanggalPermintaan(input) {
             const selectedDate = new Date(input.value);

@@ -33,6 +33,7 @@
     <li class="nav-item dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-columns"></i> <span>Transaksi Barang</span></a>
             <ul class="dropdown-menu">
+                <li><a class="nav-link" href="<?=site_url('Penerimaan')?>">Penerimaan Barang</a></li>
                 <li><a class="nav-link" href="<?=site_url('Pengadaan')?>">Pengadaan Barang</a></li>
             </ul>
     </li>

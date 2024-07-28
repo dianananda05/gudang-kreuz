@@ -29,6 +29,21 @@
                         </div>
                     </div>
                     </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-success">
+                        <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Penerimaan</h4>
+                        </div>
+                        <div class="card-body">
+                            <?= $penerimaanCount ?>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-6">
@@ -63,10 +78,10 @@
                 var myChart2 = new Chart(ctx2, {
                     type: 'bar',
                     data: {
-                        labels: ['Pengadaan'],
+                        labels: ['Pengadaan', 'Penerimaan'],
                         datasets: [{
                             label: 'Pengadaan',
-                            data: [<?= $pengadaanCount ?>],
+                            data: [<?= $pengadaanCount ?>, <?= $penerimaanCount ?>],
                             backgroundColor: [
                                 'rgba(94, 75, 158, 0.8)', 
                                 'rgba(255, 0, 0, 0.8)',   
@@ -96,10 +111,10 @@
                 var myChart4 = new Chart(ctx4, {
                     type: 'pie',
                     data: {
-                        labels: ['Pengadaan'],
+                        labels: ['Pengadaan', 'Penerimaan'],
                         datasets: [{
                             label: 'Total',
-                            data: [<?= $pengadaanCount ?>],
+                            data: [<?= $pengadaanCount ?>, <?= $penerimaanCount ?>],
                             backgroundColor: [
                                 'rgba(94, 75, 158, 0.8)', 
                                 'rgba(255, 0, 0, 0.8)',   
