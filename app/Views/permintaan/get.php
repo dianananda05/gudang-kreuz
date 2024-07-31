@@ -68,7 +68,7 @@
                                     <th scope="col">Timestamp</th>
                                     <th scope="col">Detail</th>
                                     <th scope="col">Status</th>
-                                    <?php if ($isKepalaProduksi) : ?>
+                                    <?php if ($isAdmin || $isKepalaProduksi) : ?>
                                         <th scope="col">Aksi</th>
                                     <?php endif; ?>
                                 </tr>
@@ -86,8 +86,8 @@
                                         <td><?= $value['type_permintaan'] ?></td>
                                         <td><?= $value['timestamp'] ?></td>
                                         <td><button class="btn btn-info btn-sm btn-flat" data-toggle="modal" data-target="#detailModal<?= $value['kode_permintaan']; ?>"><i class="fas fa-info-circle"></i> Detail</button></td>
-                                        <?php if ($isAdmin) : ?>
-                                            <td class="text-center" style="width: 15%">
+                                        <td>
+                                            <?php if ($value['type_permintaan'] == 'PENGADAAN' && $isKepalaProduksi) : ?>
                                                 <?php if (is_null($value['status'])) : ?>
                                                     <a href="<?= site_url('Permintaan/approve/' . $value['kode_permintaan']) ?>" class="btn btn-success btn-sm"><i class="fas fa-check"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#rejectModal<?= $value['kode_permintaan'] ?>"><i class="fas fa-times"></i></button>
@@ -95,13 +95,25 @@
                                                     <?php if ($value['status'] == 1) : ?>
                                                         <span class="badge badge-success">Disetujui</span>
                                                     <?php elseif ($value['status'] == 0) : ?>
-                                                        <span class="badge badge-danger">Ditolak</span>
+                                                        <span class="badge badge-danger" style="cursor: pointer;" data-toggle="modal" data-target="#alasanPenolakanModal<?= $value['kode_permintaan'] ?>">
+                                                            Ditolak
+                                                        </span>
                                                     <?php endif; ?>
                                                 <?php endif; ?>
-                                            </td>
-                                        <?php endif; ?>
-                                        <?php if ($isKepalaProduksi || $isKepalaGudang) : ?>
-                                            <td>
+                                            <?php elseif ($value['type_permintaan'] == 'PRODUKSI' && $isAdmin) : ?>
+                                                <?php if (is_null($value['status'])) : ?>
+                                                    <a href="<?= site_url('Permintaan/approve/' . $value['kode_permintaan']) ?>" class="btn btn-success btn-sm"><i class="fas fa-check"></i></a>
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#rejectModal<?= $value['kode_permintaan'] ?>"><i class="fas fa-times"></i></button>
+                                                <?php else : ?>
+                                                    <?php if ($value['status'] == 1) : ?>
+                                                        <span class="badge badge-success">Disetujui</span>
+                                                    <?php elseif ($value['status'] == 0) : ?>
+                                                        <span class="badge badge-danger" style="cursor: pointer;" data-toggle="modal" data-target="#alasanPenolakanModal<?= $value['kode_permintaan'] ?>">
+                                                            Ditolak
+                                                        </span>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            <?php else : ?>
                                                 <?php if (is_null($value['status'])) : ?>
                                                     <span class="badge badge-warning">Menunggu Konfirmasi</span>
                                                 <?php elseif ($value['status'] == 1) : ?>
@@ -111,18 +123,26 @@
                                                         Ditolak
                                                     </span>
                                                 <?php endif; ?>
-                                            </td>
-                                        <?php endif; ?>
-                                        <?php if ($isKepalaProduksi) : ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <?php if ($isAdmin || $isKepalaProduksi) : ?>
                                         <td class="text-center" style="width:15%">
                                             <?php if ($value['status'] == 0) : ?>
-                                            <a href="<?= site_url('permintaan/edit/' . $value['kode_permintaan']) ?>" class="btn btn-warning btn-sm mr-1">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
+                                                <?php if ($value['type_permintaan'] == 'PENGADAAN' && $isAdmin) : ?>
+                                                    <a href="<?= site_url('permintaan/edit/' . $value['kode_permintaan']) ?>" class="btn btn-warning btn-sm mr-1">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                <?php elseif ($value['type_permintaan'] == 'PRODUKSI' && $isKepalaProduksi) : ?>
+                                                    <a href="<?= site_url('permintaan/edit/' . $value['kode_permintaan']) ?>" class="btn btn-warning btn-sm mr-1">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                <?php endif; ?>
                                             <?php endif; ?>
-                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal-<?= $value['kode_permintaan'] ?>"><i class="fas fa-trash"></i></button>
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusModal-<?= $value['kode_permintaan'] ?>">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </td>
-                                        <?php endif; ?>
+                                    <?php endif; ?>
                                     </tr>
                                 <?php
                                     $no++;

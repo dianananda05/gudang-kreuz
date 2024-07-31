@@ -72,13 +72,26 @@ class Permintaan extends BaseController
 
     public function approve($kode_permintaan)
     {
-        $data = [
-            'status' => 1
-        ];
+        // $data = [
+        //     'status' => 1
+        // ];
 
-        $this->ModelPermintaan->updateStatus($kode_permintaan, $data);
-        session()->setFlashdata('pesan', 'Permintaan berhasil disetujui.');
-        return redirect()->to('Permintaan');
+        // $this->ModelPermintaan->updateStatus($kode_permintaan, $data);
+        // session()->setFlashdata('pesan', 'Permintaan berhasil disetujui.');
+        // return redirect()->to('Permintaan');
+        $permintaan = $modelpermintaan->find($kode_permintaan);
+
+    // Periksa tipe permintaan
+    if ($permintaan['type_permintaan'] == 'Produksi') {
+        return redirect()->to('Permintaan')->with('error', 'Permintaan tipe Produksi tidak memerlukan persetujuan.');
+    }
+
+    $modelpermintaan->update($kode_permintaan, [
+        'status' => 1,
+        'timestamp' => date('Y-m-d H:i:s'),
+    ]);
+
+    return redirect()->to('Permintaan')->with('pesan', 'Permintaan berhasil disetujui.');
     }
 
     public function reject($kode_permintaan)

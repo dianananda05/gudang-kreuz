@@ -46,9 +46,9 @@
                 <!-- Tabel untuk memasukkan data barang -->
                 <div class="form-group">
                     <div class="form-inline mb-3">
-                        <input type="text" id="searchInput" class="form-control" placeholder="Cari Barang...">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Cari Barang..." style="flex: 1; margin-right: 10px;">
                         <button type="button" class="btn btn-primary" onclick="openScanModal()">Scan QR</button>
-                        </div>
+                    </div>
                     
                     <table class="table table-bordered" id="barangTable">
                         <thead>
@@ -79,7 +79,6 @@
                                         <a href="#" onclick="openModal('<?= $barang['kode_barang']; ?>', '<?= $barang['nama_barang']; ?>');">
                                             <i class="fas fa-qrcode" style="font-size: 24px;"></i>
                                         </a>
-                                        <!-- <button type="button" class="btn btn-primary barcode-scan-button">Scan QR</button> -->
                                         <button type="button" class="btn btn-danger btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -147,6 +146,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@2.1.0/umd/jsQR.min.js"></script>
 <!-- Script untuk menambah baris baru secara otomatis dan fitur search -->
 <script>
     console.log('lodash', _)
@@ -201,35 +201,27 @@
             fetchDetailBarang(initialSelectedKodePO);
         }
 
-        const attachEventListeners = (row) => {
-            row.querySelector('.kode_barang').addEventListener('change', function () {
-                const selectedOption = this.options[this.selectedIndex];
-                row.querySelector('.nama_barang').value = selectedOption.getAttribute('data-nama');
-                row.querySelector('.satuan').value = selectedOption.getAttribute('data-satuan');
-            });
-
-            row.querySelector('.btn-remove-row').addEventListener('click', function () {
-                row.remove();
-            });
-        };
-
-        // Attach event listener to the initial row
-        attachEventListeners(barangTable.querySelector('tbody tr'));
-
         // Search functionality
         searchInput.addEventListener('input', function () {
             const filter = searchInput.value.toLowerCase();
             const rows = barangTable.querySelectorAll('tbody tr');
 
             rows.forEach(row => {
-                const kodeBarang = row.querySelector('.kode_barang');
-                const namaBarang = row.querySelector('.nama_barang');
+                const kodeBarang = row.querySelector('input[name="kode_barang[]"]').value.toLowerCase();
+                const namaBarang = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
 
-                if (kodeBarang && namaBarang) {
-                    const textValue = (kodeBarang.value + namaBarang.value).toLowerCase();
-                    row.style.display = textValue.includes(filter) ? '' : 'none';
+                if (kodeBarang.includes(filter) || namaBarang.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
                 }
             });
+        });
+
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('btn-remove-row')) {
+                event.target.closest('tr').remove();
+            }
         });
         
         kodePoElm.addEventListener('change', function (evt) {
@@ -296,11 +288,6 @@
     function closeScanModal() {
         $('#qrScanModal').modal('hide'); // Sembunyikan modal menggunakan Bootstrap
     }
-
-    //     // Fungsi untuk menutup modal
-    //     function closeModal() {
-    //     $('#qrCodeModal').modal('hide'); // Sembunyikan modal menggunakan Bootstrap
-    // }
 
     // Fungsi untuk mencetak QR Code
     function printQRCode() {

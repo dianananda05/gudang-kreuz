@@ -41,7 +41,11 @@
 
                 <!-- Tabel untuk memasukkan data barang -->
                 <div class="form-group">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Cari Barang...">
+                    <div class="form-inline mb-3">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Cari Barang..." style="flex: 1; margin-right: 10px;">
+                        <button type="button" class="btn btn-primary" onclick="openScanModal()">Scan QR</button>
+                    </div>
+
                     <table class="table table-bordered" id="barangTable">
                         <thead>
                             <tr>
@@ -50,7 +54,6 @@
                                 <th>Satuan</th>
                                 <th>Jumlah Yang Diminta</th>
                                 <th>Jumlah Yang Diserahkan</th>
-                                <th>Scan QR</th>
                                 <th>Keterangan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -63,15 +66,13 @@
                                     <td><?= $barang['satuan'] ?></td>
                                     <td><?= $barang['jumlah_yang_diminta'] ?></td>
                                     <td>
-                                        <input name="jumlah_yang_diserahkan[]" type="number" class="form-control barcode-input" placeholder="Jumlah Yang Diserahkan" required data-barcode-input>
-                                    </td>
-                                    <td id="cameraView">
-                                        <video id="videoElement" autoplay></video>
+                                        <input id="<?= $barang['kode_barang'] ?>" name="jumlah_yang_diserahkan[]" type="number" class="form-control barcode-input" placeholder="Jumlah Yang Diserahkan" required data-barcode-input>
                                     </td>
                                     <td><input name="keterangan[]" class="form-control" placeholder="Keterangan" required></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary barcode-scan-button">Scan QR</button>
-                                        <button type="button" class="btn btn-danger btn-remove-row">Hapus</button>
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -89,9 +90,33 @@
     </div>
 </section>
 
+<div class="modal fade" id="qrScanModal" tabindex="-1" aria-labelledby="qrCodeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="qrCodeModalLabel">QR Scan</h5>
+                <button type="button" class="btn-close" onclick="closeScanModal();" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
+                <canvas id="qrView" hidden></canvas>
+                <div id="output" hidden>
+                    <div id="outputMessage">No QR code detected.</div>
+                    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeScanModal();">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jsqr@2.1.0/umd/jsQR.min.js"></script>
 <!-- Script untuk menambah baris baru secara otomatis dan fitur search -->
 <script>
@@ -199,74 +224,106 @@
         });
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const videoElement = document.getElementById('videoElement');
+    function openScanModal(kode_barang) {
+        $('#qrScanModal').modal('show'); // Tampilkan modal
+    }
 
-        function startCamera() {
-            navigator.mediaDevices.getUserMedia({ video: true })
-                .then(function (stream) {
-                    videoElement.srcObject = stream;
-                    videoElement.play();
-                })
-                .catch(function (error) {
-                    console.error('Error accessing camera: ', error);
-                });
-        }
+    // Fungsi untuk menutup modal
+    function closeScanModal() {
+        $('#qrScanModal').modal('hide'); // Sembunyikan modal menggunakan Bootstrap
+    }
+</script>
 
-        function handleQRScan(result) {
-            if (result) {
-                const scannedValue = result.text.trim();
-                const barcodeInput = document.querySelector('[data-barcode-input]');
-                if (barcodeInput) {
-                    barcodeInput.value = scannedValue;
-                } else {
-                    alert('No input field found for barcode data.');
-                }
-            } else {
-                alert('QR code not detected or could not be read.');
-            }
-        }
+<script>
+    var listBarang = {};
+    <?php foreach ($list_barang as $barang) : ?>
+    listBarang[ "<?= $barang['kode_barang'] ?>"] = <?= $barang['jumlah_yang_diminta'] ?>;
+    <?php endforeach; ?>
+    console.log('listBarang', listBarang)
 
-        function scanQRCode() {
-            const constraints = { video: true };
-            const video = document.createElement('video');
+    var video = document.createElement("video");
+    var canvasElement = document.getElementById("qrView");
+    var canvas = canvasElement.getContext("2d");
+    var loadingMessage = document.getElementById("loadingMessage");
+    var outputContainer = document.getElementById("output");
+    var outputMessage = document.getElementById("outputMessage");
+    var outputData = document.getElementById("outputData");
 
-            function handleSuccess(stream) {
-                video.srcObject = stream;
-                video.addEventListener('loadedmetadata', () => {
-                    video.play();
-                    const canvas = document.createElement('canvas');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    const context = canvas.getContext('2d');
-                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-                    const code = jsQR(imageData.data, imageData.width, imageData.height);
-                    handleQRScan(code);
-                    video.srcObject.getTracks().forEach(track => track.stop());
-                    video.remove();
-                    canvas.remove();
-                });
-            }
+    function drawLine(begin, end, color) {
+      canvas.beginPath();
+      canvas.moveTo(begin.x, begin.y);
+      canvas.lineTo(end.x, end.y);
+      canvas.lineWidth = 4;
+      canvas.strokeStyle = color;
+      canvas.stroke();
+    }
 
-            function handleError(error) {
-                console.error('Error accessing camera: ', error);
-            }
-
-            navigator.mediaDevices.getUserMedia(constraints)
-                .then(handleSuccess)
-                .catch(handleError);
-        }
-
-        // Start camera when the DOM content is loaded
-        startCamera();
-
-        // Trigger QR code scanning on click of the "Scan QR" button
-        document.addEventListener('click', function (event) {
-            if (event.target.classList.contains('barcode-scan-button')) {
-                scanQRCode();
-            }
-        });
+    // Use facingMode: environment to attemt to get the front camera on phones
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+      video.srcObject = stream;
+      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+      video.play();
+      requestAnimationFrame(tick);
     });
+
+    function incrementJumahBarang (elm, kode) {
+        let value = parseInt(elm.value)
+        if (Number.isNaN(value)) {
+            value = 0;
+        }
+        const maxJumlahBarang = listBarang[kode]
+        console.log('maxJumlahBarang', maxJumlahBarang)
+
+        if (value < maxJumlahBarang) {
+            elm.value = value + 1;
+        } else {
+            alert('Jumlah barang ' + kode + ' sudah mencukupi!')
+            // outputData.innerHtml = '<span style="color: red">Jumlah barang sudah mencukupi!</span>'
+        }
+    }
+
+    const debouncedIncrementJumahBarang = _.debounce(incrementJumahBarang, 500)
+
+    function tick() {
+      loadingMessage.innerText = "⌛ Loading video..."
+      if (video.readyState === video.HAVE_ENOUGH_DATA) {
+        loadingMessage.hidden = true;
+        canvasElement.hidden = false;
+        outputContainer.hidden = false;
+
+        canvasElement.height = video.videoHeight;
+        canvasElement.width = video.videoWidth;
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+        var code = jsQR(imageData.data, imageData.width, imageData.height, {
+          inversionAttempts: "dontInvert",
+        });
+        if (code) {
+          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
+          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
+          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
+          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
+          outputMessage.hidden = true;
+          outputData.parentElement.hidden = false;
+          outputData.innerText = code.data; // BRG101 - TRIANGLE INTERNAL
+          
+        //   debouncedIncrementJumahBarang(code)
+            const scannedBarcode = code.data.split(' - ') // ['BRG101', 'TRIANGEL INTERNAL']
+            const kodeBarang = scannedBarcode[0]
+            const namaBarang = scannedBarcode[1]
+            const elm = document.getElementById(kodeBarang)
+
+            if (elm) {
+                debouncedIncrementJumahBarang(elm, kodeBarang)
+            }
+
+            // const jumlahTBarang = listBarang[code.data];
+        } else {
+          outputMessage.hidden = false;
+          outputData.parentElement.hidden = true;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
 </script>
 <?= $this->endSection() ?>
