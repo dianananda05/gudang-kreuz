@@ -237,15 +237,27 @@ class Pengadaan extends BaseController
         $alamatPerusahaan = 'Jl. Rereng Adumanis No.47, Sukaluyu, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40123';
 
         // Header invoice
-        $html = '<table width="100%" style="border-collapse: collapse;">';
+        $html = '<table width="100%">';
+        $html .= '<tr>';
+        $html .= '<td colspan="2"><hr style="margin-top: 20px; margin-bottom: 20px;"></td>';
+        $html .= '</tr>';
+        $html .= '</table>';
+
+        $html .= '<table width="100%" style="border-collapse: collapse;">';
         $html .= '<tr>';
         $html .= '<td style="width: 20%; text-align: left; vertical-align: top;">
                     <img src="' . $logoPath . '" style="width: 60px; height: auto; vertical-align: middle;"/>
                     </td>';
-        $html .= '<td style="width: 80%; text-align: left; vertical-align: top;">';
-        $html .= '<h2 style="margin: 0; font-size: 10px; font-weight: bold; line-height: 1;">' . $namaPerusahaan . '</h2>';
+        $html .= '<td style="width: 80%; text-align: left; vertical-align: top; padding-top: 20px;">';
+        $html .= '<h2 style="margin-top: 20px; margin-bottom: 5px; font-size: 10px; font-weight: bold; line-height: 1;">' . $namaPerusahaan . '</h2>';
         $html .= '<p style="font-size: 8px; margin-top: 5px; line-height: 1.2;">' . $alamatPerusahaan . '</p>';
         $html .= '</td>';
+        $html .= '</tr>';
+        $html .= '</table>';
+
+        $html .= '<table width="100%">';
+        $html .= '<tr>';
+        $html .= '<td></td>';
         $html .= '</tr>';
         $html .= '</table>';
 
@@ -299,7 +311,7 @@ class Pengadaan extends BaseController
             $html .= '<td>' . $detail['nama_barang'] . '</td>';
             $html .= '<td>' . $detail['satuan'] . '</td>';
             $html .= '<td>' . $detail['jumlah_barang'] . '</td>';
-            $html .= '<td>' . number_format($detail['harga_satuan'], 2, ',', '.') . '</td>';
+            $html .= '<td>' . 'Rp. ' . number_format($detail['harga_satuan'], 2, ',', '.') . '</td>';
             
             // Hitung total harga untuk item saat ini
             $totalItem = $detail['jumlah_barang'] * $detail['harga_satuan'];
@@ -314,7 +326,7 @@ class Pengadaan extends BaseController
 
         // Tambahkan baris total di luar loop
         $html .= '<tr>';
-        $html .= '<td colspan="4" align="right"><strong>Total Barang :</strong></td>';
+        $html .= '<td colspan="3" align="right"><strong>Total Barang :</strong></td>';
         $html .= '<td align="right"><strong>' . $totalBarang . '</strong></td>';
         $html .= '<td colspan="2"></td>';
         $html .= '</tr>';
