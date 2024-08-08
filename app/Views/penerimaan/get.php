@@ -18,7 +18,7 @@
         <div class="section-body">
             <div class="section">
                     <div class="section-header">
-                        <div class="row mb-4">
+                        <div class="row mb-4" style="overflow: scroll">
                         <?php if ($isAdmin) : ?>
                             <div class="col-md-12">
                                 <h6>Cetak Laporan Penerimaan Barang</h6>
@@ -32,7 +32,7 @@
                                 </form>
                             </div>
                         <?php endif; ?>
-                <div class="card-body">
+                <div class="card-body" style="max-width: 100%">
                     <?php if (session()->getFlashdata('pesan')) : ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -149,7 +149,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jsqr@2.1.0/umd/jsQR.min.js"></script>
 <!-- Script untuk menambah baris baru secara otomatis dan fitur search -->
 <script>
-    console.log('lodash', _)
     document.addEventListener('DOMContentLoaded', function () {
         const barangTable = document.getElementById('barangTable');
         const searchInput = document.getElementById('searchInput');
@@ -342,6 +341,8 @@
     });
 
     function incrementJumahBarang (elm, kode) {
+        const sound = new Audio('<?=base_url()?>/template/assets/img/beep.mp3');
+        sound.play();
         let value = parseInt(elm.value)
         if (Number.isNaN(value)) {
             value = 0;
@@ -350,6 +351,7 @@
         console.log('maxJumlahBarang', maxJumlahBarang)
 
         if (value < maxJumlahBarang) {
+            sound.play();
             elm.value = value + 1;
         } else {
             alert('Jumlah barang ' + kode + ' sudah mencukupi!')

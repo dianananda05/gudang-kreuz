@@ -28,6 +28,7 @@ helper('session');
             background-color: #f0f0f0;
             padding: 10px;
             margin-bottom: 20px;
+            position: relative;
         }
 
         .section-title {
