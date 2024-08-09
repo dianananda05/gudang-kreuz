@@ -17,7 +17,7 @@
 
         <div class="section-body">
             <div class="section-header">
-                        <div class="row mb-4">
+                        <div class="row mb-4" style="overflow: scroll">
                         <?php if ($isAdmin) : ?>
                                 <div class="col-md-12">
                                     <h6>Cetak Laporan Penukaran Barang</h6>

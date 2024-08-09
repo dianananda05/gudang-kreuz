@@ -40,7 +40,7 @@
                 </div>
 
                 <!-- Tabel untuk memasukkan data barang -->
-                <div class="form-group">
+                <div class="form-group" style="overflow: scroll">
                     <div class="form-inline mb-3">
                         <input type="text" id="searchInput" class="form-control" placeholder="Cari Barang..." style="flex: 1; margin-right: 10px;">
                         <button type="button" class="btn btn-primary" onclick="openScanModal()">Scan QR</button>
@@ -267,6 +267,8 @@
     });
 
     function incrementJumahBarang (elm, kode) {
+        const sound = new Audio('<?=base_url()?>/template/assets/img/beep.mp3');
+        sound.play();
         let value = parseInt(elm.value)
         if (Number.isNaN(value)) {
             value = 0;
@@ -275,6 +277,7 @@
         console.log('maxJumlahBarang', maxJumlahBarang)
 
         if (value < maxJumlahBarang) {
+            sound.play();
             elm.value = value + 1;
         } else {
             alert('Jumlah barang ' + kode + ' sudah mencukupi!')

@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- Tabel untuk memasukkan data barang -->
-                <div class="form-group">
+                <div class="form-group" style="overflow: scroll">
                     <input type="text" id="searchInput" class="form-control" placeholder="Cari Barang...">
                     <table class="table table-bordered" id="barangTable">
                         <thead>
