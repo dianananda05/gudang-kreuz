@@ -217,14 +217,12 @@ class Permintaan extends BaseController
         $keterangan = $this->request->getPost('keterangan');
 
         for ($i = 0; $i < count($kode_barang); $i++) {
-            foreach ($kode_barang as $index => $kode) {
                 $dataDetail = [
-                    'kode_barang' => $kode_barang[$index],
-                    'jumlah_yang_diminta' => $jumlah_yang_diminta[$index],
-                    'keterangan' => $keterangan[$index],
+                    'kode_barang' => $kode_barang[$i],
+                    'jumlah_yang_diminta' => $jumlah_yang_diminta[$i],
+                    'keterangan' => $keterangan[$i],
                 ];
-                $this->ModelDetailPermintaan->ubahdata($dataDetail);
-            }
+                $this->ModelDetailPermintaan->ubahdata($kode_permintaan, $dataDetail);
         }
         session()->setFlashdata('pesan', 'Permintaan Berhasil Diupdate');
         return redirect()->to('Permintaan');

@@ -30,9 +30,22 @@ class ModelDetailPermintaan extends Model
         $this->db->table('detail_permintaan')->insert($dataDetail);
     }
 
-    public function ubahdata($dataDetail)
+    // public function ubahdata($dataDetail)
+    // {
+    //     $this->db->table('detail_permintaan')->where('kode_permintaan', $dataDetail['kode_permintaan'])->update($dataDetail);
+    // }
+
+    public function ubahdata($kode_permintaan, $dataDetail)
     {
-        $this->db->table('detail_permintaan')->where('kode_permintaan', $dataDetail['kode_permintaan'])->update($dataDetail);
+        // Pastikan dataDetail mengandung kunci yang diperlukan
+        if (!isset($dataDetail['kode_barang'])) {
+            throw new \Exception('Kunci "kode_barang" tidak ditemukan dalam data.');
+        }
+
+        $this->db->table('detail_permintaan')
+            ->where('kode_permintaan', $kode_permintaan)
+            ->where('kode_barang', $dataDetail['kode_barang'])
+            ->update($dataDetail);
     }
 
     public function hapusdata($kode_permintaan)
