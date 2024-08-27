@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ModelPengadaan;
 use App\Models\ModelPermintaan;
+use App\Models\ModelPenerimaan;
 use App\Models\ModelDetailPengadaan;
 use App\Models\ModelDetailPermintaan;
 use App\Models\ModelBarang;
@@ -16,6 +17,7 @@ class Pengadaan extends BaseController
     {
         $this->ModelPengadaan = new ModelPengadaan();
         $this->ModelPermintaan = new ModelPermintaan();
+        $this->ModelPenerimaan = new ModelPenerimaan();
         $this->ModelDetailPengadaan = new ModelDetailPengadaan();
         $this->ModelDetailPermintaan = new ModelDetailPermintaan();
         $this->ModelBarang = new ModelBarang();
@@ -78,8 +80,11 @@ class Pengadaan extends BaseController
 
     public function reject($kode_po)
     {
+        $catatan = $this->request->getPost('catatan');
+
         $data = [
-            'status' => 0
+            'status' => 0,
+            'catatan' => $catatan,
         ];
 
         $this->ModelPengadaan->updateStatus($kode_po, $data);
@@ -208,12 +213,20 @@ class Pengadaan extends BaseController
     }
 
     public function hapusdata($kode_po)
-    {
-        $data = [
-            'kode_po' => $kode_po,
-        ];
-        $this->ModelPengadaan->hapusdata($data);
-        session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+    {   
+        $penerimaanExist = $this->ModelPenerimaan->where('kode_po', $kode_po)->countAllResults();
+
+        if ($penerimaanExist > 0) {
+        // Jika sudah ada penerimaan, tampilkan pesan error
+        session()->setFlashdata('error', 'Data tidak dapat dihapus karena sudah dilakukan penerimaan');
+        } else {
+            $data = [
+                'kode_po' => $kode_po,
+            ];
+            $this->ModelPengadaan->hapusdata($data);
+            session()->setFlashdata('pesan', 'Data Berhasil Dihapus');
+            // return redirect()->to('Pengadaan');
+        }
         return redirect()->to('Pengadaan');
     }
 

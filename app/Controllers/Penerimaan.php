@@ -170,7 +170,13 @@ class Penerimaan extends BaseController
         $pengadaan = $this->ModelPengadaan->AllData($kode_penerimaan);
         $kode_po = $penerimaan['kode_po'];
 
-        $jumlah_barang_dipesan = $this->ModelDetailPengadaan->getJumlahBarangDipesanByKodePO($kode_po);
+        // $jumlah_barang_dipesan = $this->ModelDetailPengadaan->getJumlahBarangDipesanByKodePO($kode_po);
+        $jumlahDipesan = $this->ModelDetailPengadaan->getJumlahBarangDipesanByKodePO($penerimaan['kode_po']);
+    
+        // Menambahkan jumlah yang dipesan ke setiap detail penerimaan
+        foreach ($detail_penerimaan as &$detail) {
+            $detail['jumlah_dipesan'] = $jumlahDipesan[$detail['kode_barang']] ?? 0;
+        }
 
         $data = [
             'judul' => 'Edit Penerimaan Barang',
@@ -182,7 +188,7 @@ class Penerimaan extends BaseController
             'detail_penerimaan' => $detail_penerimaan,
             'pengadaan' => $pengadaan,
             'barang' => $this->ModelBarang->AllData(),
-            'jumlah_barang_dipesan' => $jumlah_barang_dipesan,
+            // 'jumlah_barang_dipesan' => $jumlah_barang_dipesan,
         ];
 
         return view('penerimaan/edit', $data);
@@ -214,7 +220,7 @@ class Penerimaan extends BaseController
             }
         }
 
-        return redirect()->to('Penerimaan')->with('success', 'Penerimaan berhasil diupdate');
+        return redirect()->to('Penerimaan')->with('pesan', 'Penerimaan berhasil diupdate');
     }
 
     // public function hapusdata($kode_penerimaan)

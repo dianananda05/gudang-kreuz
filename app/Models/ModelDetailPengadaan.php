@@ -60,12 +60,17 @@ class ModelDetailPengadaan extends Model
     public function getJumlahBarangDipesanByKodePO($kode_po)
     {
         $query = $this->db->table('detail_pengadaan')
-                          ->select('jumlah_barang')
+                          ->select('kode_barang, jumlah_barang')
                           ->where('kode_po', $kode_po)
                           ->get();
 
-        $result = $query->getRow();
-        return $result ? $result->jumlah_barang : 0;
+        // $result = $query->getRow();
+        // return $result ? $result->jumlah_barang : 0;
+
+        $result = $query->getResultArray();
+    
+        // Mengembalikan array dengan kode_barang sebagai kunci dan jumlah_barang sebagai nilai
+        return array_column($result, 'jumlah_barang', 'kode_barang');
     }
 
 }

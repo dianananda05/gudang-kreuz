@@ -79,6 +79,7 @@ class Permintaan extends BaseController
         // $this->ModelPermintaan->updateStatus($kode_permintaan, $data);
         // session()->setFlashdata('pesan', 'Permintaan berhasil disetujui.');
         // return redirect()->to('Permintaan');
+        $modelpermintaan = new ModelPermintaan();
         $permintaan = $modelpermintaan->find($kode_permintaan);
 
     // Periksa tipe permintaan
@@ -86,7 +87,7 @@ class Permintaan extends BaseController
         return redirect()->to('Permintaan')->with('error', 'Permintaan tipe Produksi tidak memerlukan persetujuan.');
     }
 
-    $modelpermintaan->update($kode_permintaan, [
+    $modelpermintaan->updateStatus($kode_permintaan, [
         'status' => 1,
         'timestamp' => date('Y-m-d H:i:s'),
     ]);
@@ -216,15 +217,16 @@ class Permintaan extends BaseController
         $keterangan = $this->request->getPost('keterangan');
 
         for ($i = 0; $i < count($kode_barang); $i++) {
-            $dataDetail = [
-                'kode_permintaan' => $kode_permintaan,
-                'kode_barang' => $kode_barang[$i],
-                'jumlah_yang_diminta' => $jumlah_yang_diminta[$i],
-                'keterangan' => $keterangan[$i],
-            ];
-            $this->ModelDetailPermintaan->ubahdata($dataDetail);
+            foreach ($kode_barang as $index => $kode) {
+                $dataDetail = [
+                    'kode_barang' => $kode_barang[$index],
+                    'jumlah_yang_diminta' => $jumlah_yang_diminta[$index],
+                    'keterangan' => $keterangan[$index],
+                ];
+                $this->ModelDetailPermintaan->ubahdata($dataDetail);
+            }
         }
-        session()->setFlashdata('pesan', 'Data Berhasil Diupdate');
+        session()->setFlashdata('pesan', 'Permintaan Berhasil Diupdate');
         return redirect()->to('Permintaan');
     }
 

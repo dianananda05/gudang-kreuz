@@ -61,7 +61,7 @@
                                     <td><input type="text" name="kode_barang[]" class="form-control kode_barang" value="<?= $detail['kode_barang'] ?>" readonly></td>
                                     <td><input type="text" name="nama_barang[]" class="form-control nama_barang" value="<?= $detail['nama_barang'] ?>" readonly></td>
                                     <td><input type="text" name="satuan[]" class="form-control satuan" value="<?= $detail['satuan'] ?>" readonly></td>
-                                    <td><input type="number" class="form-control" value="<?= $jumlah_barang_dipesan ?>" readonly></td>
+                                    <td><input type="number" class="form-control" value="<?= $detail['jumlah_dipesan'] ?>" readonly></td>
                                     <td><input type="number" name="jumlah_yang_diterima[]" class="form-control" value="<?= $detail['jumlah_yang_diterima'] ?>" required></td>
                                     <td><input type="text" name="kondisi_barang[]" class="form-control kondisi_barang" value="<?= $detail['kondisi_barang'] ?>" required></td>
                                     <td><button type="button" class="btn btn-danger btn-remove-row">Hapus</button></td>
