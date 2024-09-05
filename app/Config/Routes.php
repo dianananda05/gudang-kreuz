@@ -85,3 +85,9 @@ $routes->get('/dashboard/admin', 'Dashboard::admin', ['filter' => 'auth']);
 $routes->get('/dashboard/kepalagudang', 'Dashboard::kepalagudang', ['filter' => 'auth']);
 $routes->get('/dashboard/kepalapembelian', 'Dashboard::kepalapembelian', ['filter' => 'auth']);
 $routes->get('/dashboard/kepalaproduksi', 'Dashboard::kepalaproduksi', ['filter' => 'auth']);
+
+$routes->get('/user/get', 'User:index');
+$routes->get('/user/tambah', 'User:tambahdata');
+$routes->post('/user/get', 'User:insertdata');
+$routes->get('user/edit/(:any)', 'User::edit/$1');
+$routes->get('user/get/(:any)', 'User::ubahdata/$1');

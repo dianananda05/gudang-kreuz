@@ -3,7 +3,9 @@
 <li><a href="<?=site_url('Barang')?>" class="nav-link"><i class="fa fa-cubes" aria-hidden="true"></i><span>Data Barang</span></a></li>
 <li class="menu-header">Main Menu</li>
     <li class="nav-item dropdown">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-columns"></i> <span>Transaksi Barang</span></a>
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fa fa-columns"></i> 
+                <span>Transaksi Barang</span>
+            </a>
             <ul class="dropdown-menu">
                 <li><a class="nav-link" href="<?=site_url('Penerimaan')?>">Penerimaan Barang</a></li>
                 <li><a class="nav-link" href="<?=site_url('Pengadaan')?>">Pengadaan Barang</a></li>
@@ -12,6 +14,7 @@
                 <li><a class="nav-link" href="<?=site_url('Penukaran')?>">Penukaran Barang</a></li>
             </ul>
     </li>
+    <li><a href="<?=site_url('User')?>" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i><span>User Management</span></a></li>
 <?php } ?>
 
 <?php if (session()->get('level') == 'kepalaproduksi') { ?>

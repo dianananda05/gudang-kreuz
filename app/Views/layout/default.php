@@ -36,6 +36,22 @@ helper('session');
             color: #333;
         }
 
+        .nav-item.dropdown {
+            position: relative; /* Pastikan dropdown menu diposisikan relatif terhadap nav-item */
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; /* Dropdown muncul tepat di bawah item */
+            left: 0;
+            z-index: 1000; /* Berada di atas elemen lain */
+            display: none; /* Disembunyikan sampai dropdown di-klik */
+        }
+
+        .dropdown-menu.show {
+            display: block; /* Menampilkan dropdown ketika di-klik */
+        }
+
         /* Contoh penyesuaian untuk kamera */
         #cameraView {
             position: relative;
