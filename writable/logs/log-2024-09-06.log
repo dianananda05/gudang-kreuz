@@ -1,0 +1,375 @@
+INFO - 2024-09-06 02:11:24 --> REDIRECTED ROUTE at http://localhost:8081/auth
+WARNING - 2024-09-06 02:11:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:11:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:11:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:11:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-06 02:11:36 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xamppnew\htdocs\ci4-stilsa\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xamppnew\htdocs\ci4-stilsa\system\Database\MySQLi\Connection.php(186): mysqli->real_connect()
+#1 C:\xamppnew\htdocs\ci4-stilsa\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 C:\xamppnew\htdocs\ci4-stilsa\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xamppnew\htdocs\ci4-stilsa\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query()
+#4 C:\xamppnew\htdocs\ci4-stilsa\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xamppnew\htdocs\ci4-stilsa\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xamppnew\htdocs\ci4-stilsa\app\Controllers\Login.php(25): CodeIgniter\BaseModel->first()
+#7 C:\xamppnew\htdocs\ci4-stilsa\system\CodeIgniter.php(933): App\Controllers\Login->login()
+#8 C:\xamppnew\htdocs\ci4-stilsa\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#9 C:\xamppnew\htdocs\ci4-stilsa\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\xamppnew\htdocs\ci4-stilsa\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xamppnew\htdocs\ci4-stilsa\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 C:\xamppnew\htdocs\ci4-stilsa\public\index.php(56): CodeIgniter\Boot::bootWeb()
+#13 C:\xamppnew\htdocs\ci4-stilsa\system\Commands\Server\rewrite.php(49): require_once('...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xamppnew\htdocs\ci4-stilsa\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xamppnew\htdocs\ci4-stilsa\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 C:\xamppnew\htdocs\ci4-stilsa\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xamppnew\htdocs\ci4-stilsa\system\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query()
+#3 C:\xamppnew\htdocs\ci4-stilsa\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xamppnew\htdocs\ci4-stilsa\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\xamppnew\htdocs\ci4-stilsa\app\Controllers\Login.php(25): CodeIgniter\BaseModel->first()
+#6 C:\xamppnew\htdocs\ci4-stilsa\system\CodeIgniter.php(933): App\Controllers\Login->login()
+#7 C:\xamppnew\htdocs\ci4-stilsa\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+#8 C:\xamppnew\htdocs\ci4-stilsa\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+#9 C:\xamppnew\htdocs\ci4-stilsa\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\xamppnew\htdocs\ci4-stilsa\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#11 C:\xamppnew\htdocs\ci4-stilsa\public\index.php(56): CodeIgniter\Boot::bootWeb()
+#12 C:\xamppnew\htdocs\ci4-stilsa\system\Commands\Server\rewrite.php(49): require_once('...')
+#13 {main}
+CRITICAL - 2024-09-06 02:11:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: POST, Route: auth/login]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1637): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Login.php(25): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Login->login()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-09-06 02:11:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-09-06 02:11:53 --> User found: {"id_user":"2","nama":"kepala produksi","username":"produksi","password":"$2y$10$g867dIIsFXARQtMZtdAy\/.Y1nMgvF8Xo62kuEQeFb5pRv93PfzpHy","level":"kepalaproduksi"}
+INFO - 2024-09-06 02:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:11:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Barang::$ModelBarang is deprecated in APPPATH\Controllers\Barang.php on line 21.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Barang->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-09-06 02:11:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Barang::$ModelDetailPenerimaan is deprecated in APPPATH\Controllers\Barang.php on line 22.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Barang->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-09-06 02:11:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Barang::$ModelDetailPengeluaran is deprecated in APPPATH\Controllers\Barang.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Barang->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+WARNING - 2024-09-06 02:11:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Barang::$ModelDetailPenukaran is deprecated in APPPATH\Controllers\Barang.php on line 24.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Barang->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:11:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:12:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:12:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:12:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:12:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-09-06 02:12:14 --> User found: {"id_user":"1","nama":"admin gudang","username":"admin","password":"$2y$10$j\/WWXZ7YCPcUvkh4R.LEW.n6J1fVwtJcihMNifOpOSV.FbguQGuYW","level":"admin"}
+INFO - 2024-09-06 02:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:12:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:29 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-09-06 02:14:35 --> User found: {"id_user":"2","nama":"kepala produksi","username":"produksi","password":"$2y$10$g867dIIsFXARQtMZtdAy\/.Y1nMgvF8Xo62kuEQeFb5pRv93PfzpHy","level":"kepalaproduksi"}
+INFO - 2024-09-06 02:14:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-09-06 02:14:48 --> User found: {"id_user":"3","nama":"kepala pembelian","username":"pembelian","password":"$2y$10$4TNqF14Trhg4cTJSQXOY.OZeXC.qkD2irGzYFbE.W8kOpUk3W8Pa6","level":"kepalapembelian"}
+INFO - 2024-09-06 02:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:14:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:14:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:15:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:15:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-09-06 02:15:03 --> User found: {"id_user":"4","nama":"kepala gudang","username":"gudang","password":"$2y$10$IKFEtTlx19wIxRYF8LLji.vIHt3dUIhZkb1ilCVzf73.i5mdDx7cO","level":"kepalagudang"}
+INFO - 2024-09-06 02:15:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:15:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 02:15:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 02:15:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:28:13 --> [DEPRECATED] Creation of dynamic property App\Controllers\Login::$ModelUser is deprecated in APPPATH\Controllers\Login.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Login->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:28:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-09-06 03:28:13 --> User found: {"id_user":"1","nama":"admin gudang","username":"admin","password":"$2y$10$j\/WWXZ7YCPcUvkh4R.LEW.n6J1fVwtJcihMNifOpOSV.FbguQGuYW","level":"admin"}
+INFO - 2024-09-06 03:28:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:28:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:28:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:29:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:29:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:30:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:30:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:30:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:30:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:30:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:30:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:30:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:30:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:30:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:30:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:30:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:30:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:30:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:30:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 03:59:13 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 03:59:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 04:43:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 04:43:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-09-06 04:43:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\User::$ModelUser is deprecated in APPPATH\Controllers\User.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\User->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(49): require_once('C:\\xamppnew\\htdocs\\ci4-stilsa\\public\\index.php')
+INFO - 2024-09-06 04:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
